@@ -21,11 +21,10 @@ export default function ReactApp(){
   // useState
   const [plugin, isPresent] = React.useState(false);
   const [connection, isConnected] = React.useState(false);
-  const [publickey, setPublicKey] = React.useState('');
+  const [publickey, setPublicKey] = React.useState('Wallet not Connected - Unlock the Casper Signer');
   const [locked, isLocked] = React.useState(true);
-  // status bar
-  let p2 = 0;
-  let p3 = 0;
+
+  // status
   let _status = '';
   // Event Listener for connect and disconnect event
   window.addEventListener("signer:connected", (msg) => {
@@ -71,19 +70,15 @@ export default function ReactApp(){
   }
   else{
     if (locked == false){
-      p2 = '4';
-      p3 = '4';
-      _status = 'Status: Ready.';
+      _status = 'Ready - Wallet is Connected';
     }
     else{
-      p2 = '4';
-      p3 = '1';
-      _status = 'Status: Signer is Locked.';
+      _status = 'Casper Signer is Locked - Unlock Signer to Access Wallet';
     }
     return(
       <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Layout publickey={publickey} p2={p2} p3={p3} status={_status}/>}>
+            <Route path="/" element={<Layout publickey={publickey} status={_status}/>}>
             <Route index element={<Home />} />
             <Route path="app" element={<App />} />
             </Route>

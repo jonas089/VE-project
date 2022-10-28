@@ -6,19 +6,20 @@ export default class Status extends React.Component {
   render() {
     return(
       <div>
-        <div class="w-11/12 lg:w-2/6 mx-auto">
-                <div class="flex justify-between items-center pb-2 flex-col">
-                    <p class="text-xs text-indigo-700 dark:text-indigo-400 font-bold">{this.props.status}</p>
+        <div class="flex items-center justify-center px-4 sm:px-0">
+          <div role="alert" id="alert" class="lg:w-10/12 transition duration-150 ease-in-out bg-yellow-500 shadow rounded-md md:flex justify-between items-center top-0 mt-12 mb-8 py-4 px-4">
+            <div class="sm:flex items-center">
+              <div class="flex items-end">
+                <div class="mr-2 mt-0.5 sm:mt-0 text-red-800">
+                  <img class="focus:outline-none" src="https://www.simpleimageresizer.com/_uploads/photos/9aac2696/VE_mark_1_22x22.png" alt="VE" />
                 </div>
-                <div class="flex items-center">
-                    <div class="w-1/2 bg-gray-200 dark:bg-gray-700 h-1 mr-1 relative">
-                        <div class={"h-1 w-" + this.props.p2 + "/6 bg-indigo-700"}></div>
-                    </div>
-                    <div class="w-1/2 bg-gray-200 dark:bg-gray-700 h-1 rounded-tr rounded-br">
-                      <div class={"h-1 w-" + this.props.p3 + "/6 bg-indigo-700"}></div>
-                    </div>
+                  <p class="mr-2 text-base font-bold text-white">Status</p>
                 </div>
-          </div>
+                <div class="h-1 w-1 bg-red-800 rounded-full mr-2 hidden xl:block"></div>
+                   <p class="text-base text-black-800">{this.props.status}</p>
+                </div>
+            </div>
+        </div>
       </div>
     );
   }
