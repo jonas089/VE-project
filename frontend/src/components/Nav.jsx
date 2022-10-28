@@ -13,7 +13,8 @@ export default function NavBar() {
                                 <img src="https://cryptologos.cc/logos/casper-cspr-logo.png?v=023" className="w-16 mr-4"
                                 alt="logo-img"/>
 
-                                SPR X VE</h2>
+                                Caper & Virual Enterprises
+                            </h2>
                         </a>
                         <div className="md:hidden">
                             <button
