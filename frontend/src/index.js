@@ -21,7 +21,7 @@ export default function ReactApp(){
   // useState
   const [plugin, isPresent] = React.useState(false);
   const [connection, isConnected] = React.useState(false);
-  const [publickey, setPublicKey] = React.useState('Wallet not Connected - Unlock the Casper Signer');
+  const [publickey, setPublicKey] = React.useState('Not Connected');
   const [locked, isLocked] = React.useState(true);
 
   // status
@@ -73,7 +73,7 @@ export default function ReactApp(){
       _status = 'Ready - Wallet is Connected';
     }
     else{
-      _status = 'Casper Signer is Locked - Unlock Signer to Access Wallet';
+      _status = 'Casper Signer is Locked';
     }
     return(
       <BrowserRouter>
