@@ -17,11 +17,14 @@ import Loading from './pages/Loading';
 import {Signer} from 'casper-js-sdk';
 import {window_status} from './casper/plugin/lib.js';
 
+import {fromPublic} from './casper/crypto.js';
+
 export default function ReactApp(){
   // useState
   const [plugin, isPresent] = React.useState(false);
   const [connection, isConnected] = React.useState(false);
   const [publickey, setPublicKey] = React.useState('Not Connected');
+  const [accounthash, setAccountHash] = React.useState('');
   const [locked, isLocked] = React.useState(true);
 
   // status
@@ -55,12 +58,13 @@ export default function ReactApp(){
       <Loading/>
     );
   }
-  else if (connection == false){
+  else if (connection == false && publickey == 'Not Connected'){
     if (!Signer.isConnected()){
       Signer.sendConnectionRequest();
     }
     Signer.getActivePublicKey().then(p => {
       setPublicKey(p);
+      setAccountHash(fromPublic(p));
       isLocked(false);
     });
     isConnected(Signer.isConnected());
@@ -78,7 +82,7 @@ export default function ReactApp(){
     return(
       <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Layout publickey={publickey} status={_status}/>}>
+            <Route path="/" element={<Layout publickey={publickey} accounthash={accounthash} status={_status}/>}>
             <Route index element={<Home />} />
             <Route path="app" element={<App />} />
             </Route>

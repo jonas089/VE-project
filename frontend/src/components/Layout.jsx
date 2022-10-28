@@ -12,7 +12,7 @@ export default class Layout extends React.Component {
       <div>
         <NavBar />
         <Status status={this.props.status}/>
-        <SignerViewer publickey={this.props.publickey}/>
+        <SignerViewer publickey={this.props.publickey} accounthash={this.props.accounthash}/>
         <Outlet />
       </div>
     );
