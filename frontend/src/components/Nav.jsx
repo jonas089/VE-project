@@ -10,7 +10,7 @@ export default function NavBar() {
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         <a href="/">
                             <h2 className="text-2xl font-bold inline-flex items-center">
-                                <img src="https://cryptologos.cc/logos/casper-cspr-logo.png?v=023" class="w-16 mr-4"
+                                <img src="https://cryptologos.cc/logos/casper-cspr-logo.png?v=023" className="w-16 mr-4"
                                 alt="logo-img"/>
 
                                 SPR X VE</h2>
