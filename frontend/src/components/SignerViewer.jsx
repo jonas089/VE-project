@@ -6,15 +6,14 @@ export default class SignerViewer extends React.Component {
   render() {
     return(
       <div className='flex text-center justify-center bg-gradient-to-l from-red-700 to-indigo-400'>
-
         <div className="flex flex-wrap items-center mt-1">
             <div className="ml-12">
                 <p className="text-xs text-white">Public Key</p>
-                <p className="text-xs mt-2 text-base text-white pb-6">{this.props.publickey}</p>
+                <p className="text-xs mt-3 text-white pb-6">{this.props.publickey}</p>
             </div>
             <div className="ml-12">
                 <p className="text-xs text-white">Account Hash</p>
-                <p className="text-xs mt-2 text-white pb-6">{this.props.accounthash}</p>
+                <p className="text-xs mt-3 text-white pb-6">{this.props.accounthash}</p>
             </div>
         </div>
 

@@ -41,10 +41,12 @@ export default function ReactApp(){
   });
   // custom implementation of helperPresent
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
+      console.log("Effect()");
       window_status().then(s => {
         if (s == true){
           isPresent(true);
+          clearTimeout(timer);
         }
         else{
           console.log("Waiting for Signer...");
@@ -83,7 +85,7 @@ export default function ReactApp(){
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout publickey={publickey} accounthash={accounthash} status={_status}/>}>
-            <Route index element={<Home />} />
+            <Route index element={<Home publickey={publickey} accounthash={accounthash}/>} />
             <Route path="app" element={<App />} />
             </Route>
           </Routes>
