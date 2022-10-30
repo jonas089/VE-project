@@ -24,7 +24,7 @@ export default function ReactApp(){
   const [plugin, isPresent] = React.useState(false);
   const [connection, isConnected] = React.useState(false);
   const [publickey, setPublicKey] = React.useState('Not Connected');
-  const [accounthash, setAccountHash] = React.useState('');
+  const [accounthash, setAccountHash] = React.useState('Not Connected');
   const [locked, isLocked] = React.useState(true);
 
   // status

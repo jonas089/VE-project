@@ -2,11 +2,13 @@ import React from 'react';
 function Home() {
     return(
       <div className='bg-gradient-to-l from-indigo-400 to-red-700'>
-        <h1 className='text-center text-4xl bg-black text-white'>Owned Tokens</h1>
+        <div className='text-center'>
+          <h1 className='text-white text-7xl py-10 font-serif'>Gallery</h1>
+        </div>
         <div className='flex flex-wrap items-stretch items-center bg-cover py-3 px-20'>
 
 
-          <div className='px-3 py-3'>
+          <div className='py-3 px-3'>
             <div class="max-w-sm rounded overflow-hidden bg-white px-2 py-2">
               <img class="w-full" src="https://nftevening.com/wp-content/uploads/2021/05/90.png" alt="placeholder punk"/>
               <div class="px-6 py-4">
@@ -22,8 +24,7 @@ function Home() {
             </div>
           </div>
 
-
-          <div className='px-3 py-3'>
+          <div className='py-3 px-3'>
             <div class="max-w-sm rounded overflow-hidden bg-white px-2 py-2">
               <img class="w-full" src="https://nftevening.com/wp-content/uploads/2021/05/90.png" alt="placeholder punk"/>
               <div class="px-6 py-4">
@@ -39,7 +40,7 @@ function Home() {
             </div>
           </div>
 
-          <div className='px-3 py-3'>
+          <div className='py-3 px-3'>
             <div class="max-w-sm rounded overflow-hidden bg-white px-2 py-2">
               <img class="w-full" src="https://nftevening.com/wp-content/uploads/2021/05/90.png" alt="placeholder punk"/>
               <div class="px-6 py-4">
@@ -55,7 +56,7 @@ function Home() {
             </div>
           </div>
 
-          <div className='px-3 py-3'>
+          <div className='py-3 px-3'>
             <div class="max-w-sm rounded overflow-hidden bg-white px-2 py-2">
               <img class="w-full" src="https://nftevening.com/wp-content/uploads/2021/05/90.png" alt="placeholder punk"/>
               <div class="px-6 py-4">
@@ -71,7 +72,7 @@ function Home() {
             </div>
           </div>
 
-          <div className='px-3 py-3'>
+          <div className='py-3 px-3'>
             <div class="max-w-sm rounded overflow-hidden bg-white px-2 py-2">
               <img class="w-full" src="https://nftevening.com/wp-content/uploads/2021/05/90.png" alt="placeholder punk"/>
               <div class="px-6 py-4">
@@ -86,6 +87,7 @@ function Home() {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     );
