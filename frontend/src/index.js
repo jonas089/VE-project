@@ -22,11 +22,10 @@ import {fromPublic} from './casper/crypto.js';
 export default function ReactApp(){
   // useState
   const [plugin, isPresent] = React.useState(false);
-  const [connection, isConnected] = React.useState(false);
+  const [reader, hasRead] = React.useState(false);
   const [publickey, setPublicKey] = React.useState('Not Connected');
   const [accounthash, setAccountHash] = React.useState('Not Connected');
   const [locked, isLocked] = React.useState(true);
-
   // status
   let _status = '';
   // Event Listener for connect and disconnect event
@@ -60,16 +59,13 @@ export default function ReactApp(){
       <Loading/>
     );
   }
-  else if (connection == false && publickey == 'Not Connected'){
-    if (!Signer.isConnected()){
-      Signer.sendConnectionRequest();
-    }
+  else if (reader == false && publickey == 'Not Connected'){
     Signer.getActivePublicKey().then(p => {
       setPublicKey(p);
       setAccountHash(fromPublic(p));
       isLocked(false);
     });
-    isConnected(Signer.isConnected());
+    hasRead(true)
     return(
         <Loading/>
     );
