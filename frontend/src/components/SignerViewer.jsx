@@ -5,7 +5,7 @@ export default class SignerViewer extends React.Component {
   }
   render() {
     return(
-      <div className='flex text-center justify-center bg-gradient-to-l from-red-700 to-indigo-400'>
+      <div className='flex text-center justify-center bg-gradient-to-l from-indigo-400 to-red-700'>
         <div className="flex flex-wrap items-center mt-1">
             <div className="ml-12">
                 <p className="text-xs text-white">Public Key</p>

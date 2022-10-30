@@ -10,9 +10,9 @@ export default class Layout extends React.Component {
   render() {
     return(
       <div>
-        <NavBar />
         <Status status={this.props.status}/>
         <SignerViewer publickey={this.props.publickey} accounthash={this.props.accounthash}/>
+        <NavBar />
         <Outlet />
       </div>
     );
