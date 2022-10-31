@@ -8,7 +8,7 @@ export default class Home extends React.Component {
       return(
         <div className='bg-gradient-to-l from-indigo-400 to-red-700'>
           <div className='text-center'>
-            <h1 className='text-white text-7xl py-10 font-mono'>Gallery</h1>
+            <h1 className='text-white text-5xl py-10 font-mono'>Gallery</h1>
             <button className='bg-indigo-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' onClick={() => Signer.sendConnectionRequest()}>Connect Signer</button>
           </div>
           <div className='flex flex-wrap items-stretch items-center bg-cover py-3 px-20'>

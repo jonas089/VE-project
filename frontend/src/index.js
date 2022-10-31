@@ -39,9 +39,10 @@ export default function ReactApp(){
     console.log("Signer: disconnected.");
   });
   // custom implementation of helperPresent
+
   useEffect(() => {
+    console.log("Effect")
     const timer = setTimeout(() => {
-      console.log("Effect()");
       window_status().then(s => {
         if (s == true){
           isPresent(true);
@@ -51,14 +52,16 @@ export default function ReactApp(){
           console.log("Waiting for Signer...");
         }
       });
-    }, 1000); // check whether Signer is present ever 1 second
-  });
+    }, 100);
+  }, [plugin])
+
   // Render page depending on useState variables
   if (plugin == false){
     return (
       <Loading/>
     );
   }
+
   else if (reader == false && publickey == 'Not Connected'){
     Signer.getActivePublicKey().then(p => {
       setPublicKey(p);
@@ -70,13 +73,17 @@ export default function ReactApp(){
         <Loading/>
     );
   }
+
   else{
+
     if (locked == false){
       _status = 'Ready - Wallet is Connected';
     }
+
     else{
       _status = 'Casper Signer is Locked';
     }
+
     return(
       <BrowserRouter>
           <Routes>
