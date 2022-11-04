@@ -13,8 +13,13 @@ export default class Home extends React.Component {
       }
     }
     render(){
+      if (this.props.publickey == 'Not Connected'){
+        return(
+          <h1>Loading...</h1>
+        )
+      }
       // Fetch ids once.
-      if(this.state.status_ids == false){
+      else if(this.state.status_ids == false){
         console.log("Account Hash: ", this.props.accounthash);
         getOwnedIds(this.props.accounthash).then(
           res => {
@@ -22,17 +27,20 @@ export default class Home extends React.Component {
               console.log('Server Error.');
               // handle server error
             }
-            this.setState({
-              ids : res,
-              metadata : this.state.metadata,
-              status_ids : true,
-              status_meta : this.state.status_meta
-            });
+            else{
+              console.log("IDs fetched: ", res);
+              this.setState({
+                ids : res,
+                metadata : this.state.metadata,
+                status_ids : true,
+                status_meta : this.state.status_meta
+              });
+            }
           }
         );
       }
       // Fetch metadata once.
-      else if(this.state.status_meta == false){
+      else if(this.state.status_meta == false && this.state.status_ids == true){
         getMetadata(this.state.ids).then(
           meta => {
             this.setState({
@@ -46,7 +54,7 @@ export default class Home extends React.Component {
       }
       // Conditional Render
       if (this.props.status == true && this.state.status_ids == true && this.state.status_meta == true){
-        console.log("Metadata: ", this.state.meta);
+        console.log("Metadata: ", this.state.metadata);
         return(
           <div className='bg-gradient-to-l from-indigo-400 to-red-700'>
             {/* Section heading and Connect Button */}

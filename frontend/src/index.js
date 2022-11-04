@@ -89,7 +89,7 @@ export default function ReactApp(){
           <Routes>
             <Route path="/" element={<Layout publickey={publickey} accounthash={accounthash} status={_status}/>}>
             <Route index element={<Home publickey={publickey} accounthash={accounthash} status={_status}/>} />
-            <Route path="app" element={<App />} />
+            <Route path="app" element={<App publickey={publickey} accounthash={accounthash}/>} />
             </Route>
           </Routes>
       </BrowserRouter>
