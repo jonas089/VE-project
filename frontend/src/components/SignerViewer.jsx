@@ -16,7 +16,6 @@ export default class SignerViewer extends React.Component {
                 <p className="text-xs mt-3 text-white pb-6">{this.props.accounthash}</p>
             </div>
         </div>
-
       </div>
     );
   }

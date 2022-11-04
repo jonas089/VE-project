@@ -66,6 +66,7 @@ export default function ReactApp(){
     Signer.getActivePublicKey().then(p => {
       setPublicKey(p);
       setAccountHash(fromPublic(p));
+      console.log("Account Hash: ", accounthash);
       isLocked(false);
     });
     hasRead(true)
@@ -74,7 +75,7 @@ export default function ReactApp(){
     );
   }
 
-  else{
+  else {
 
     if (locked == false){
       _status = true;
