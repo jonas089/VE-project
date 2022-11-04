@@ -7,10 +7,14 @@ export default class Home extends React.Component {
     render(){
       return(
         <div className='bg-gradient-to-l from-indigo-400 to-red-700'>
+          {/* Section heading and Connect Button */}
           <div className='text-center'>
-            <h1 className='text-white text-5xl py-10 font-mono'>Gallery</h1>
-            <button className='bg-indigo-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' onClick={() => Signer.sendConnectionRequest()}>Connect Signer</button>
+            <div className='pb-4'>
+              <h1 className='text-white text-5xl py-10 font-mono'>Casper Gallery</h1>
+            </div>
           </div>
+
+          {/* Render Gallery */}
           <div className='flex flex-wrap items-stretch items-center bg-cover py-3 px-20'>
             <div className='py-3 px-3'>
               <div class="max-w-sm rounded overflow-hidden bg-white px-2 py-2">
