@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { RuntimeArgs, CLValueBuilder, Contracts, CasperClient, DeployUtil, CLPublicKey, Signer, CLAccountHash } from 'casper-js-sdk';
 import { cep78_contract_hash, node_addr } from './constants.js';
-import { port } from '../../../server/config.js';
+const port = 3001;
 
 const base_url = "http://127.0.0.1:" + port.toString();
 
@@ -124,3 +124,5 @@ function sendDeploy(signedJson){
         console.log(error);
     });
 }
+
+export {Mint, Transfer, getOwnedIds, getMetadata};

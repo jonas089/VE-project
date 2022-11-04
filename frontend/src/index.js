@@ -27,7 +27,7 @@ export default function ReactApp(){
   const [accounthash, setAccountHash] = React.useState('Not Connected');
   const [locked, isLocked] = React.useState(true);
   // status
-  let _status = '';
+  let _status = false;
   // Event Listener for connect and disconnect event
   window.addEventListener("signer:connected", (msg) => {
     // perform an action
@@ -77,18 +77,18 @@ export default function ReactApp(){
   else{
 
     if (locked == false){
-      _status = 'Ready - Wallet is Connected';
+      _status = true;
     }
 
     else{
-      _status = 'Casper Signer is Locked';
+      _status = false;
     }
 
     return(
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout publickey={publickey} accounthash={accounthash} status={_status}/>}>
-            <Route index element={<Home publickey={publickey} accounthash={accounthash}/>} />
+            <Route index element={<Home publickey={publickey} accounthash={accounthash} status={_status}/>} />
             <Route path="app" element={<App />} />
             </Route>
           </Routes>
