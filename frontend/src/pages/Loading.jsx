@@ -20,7 +20,7 @@ function Loading() {
                   <div class="div rounded-full bg-slate-50 w-[150px] h-[150px]"></div>
                 </div>
                 <p class="mt-6 text-base font-medium text-gray-800 text-center">
-                  Loading Casper Signer...
+                  Connecting...
                 </p>
               </div>
           </div>

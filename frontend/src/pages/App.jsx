@@ -1,4 +1,5 @@
 import React from 'react';
+import Loading from './Loading';
 import Inputform from '../components/InputForm.jsx';
 import {Mint, Transfer} from '../casper/controller.js';
 import { CLPublicKey, CLAccountHash } from 'casper-js-sdk';
@@ -24,7 +25,7 @@ export default class App extends React.Component {
   render(){
     if (this.props.publickey == 'Not Connected'){
       return(
-        <h1>Loading...</h1>
+        <Loading/>
       );
     }
     else{

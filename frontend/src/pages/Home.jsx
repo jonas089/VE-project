@@ -14,13 +14,14 @@ export default class Home extends React.Component {
       }
     }
     render(){
-      if (this.props.publickey == 'Not Connected'){
+      // check if props are loaded
+      if (this.props.publickey == 'Not Connected' || this.props.accounthash == 'Not Connected'){
         return(
-          <h1>Loading...</h1>
+          <Loading/>
         )
       }
       // Fetch ids once.
-      else if(this.state.status_ids == false && this.props.publickey != 'Not Connected' && this.props.accounthash != 'Not Connected'){
+      else if(this.state.status_ids == false){
         console.log("Account Hash: ", this.props.accounthash);
         getOwnedIds(this.props.accounthash).then(
           res => {
