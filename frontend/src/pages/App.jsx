@@ -14,9 +14,6 @@ import { HiLightningBolt } from "react-icons/hi";
 export default class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      message : 'Hello World!',
-    }
   }
 
   mint(name, description, url, accounthash, publickey, parent){
@@ -76,7 +73,6 @@ export default class App extends React.Component {
         <div>
           <Inputform mint={this.mint} transfer={this.transfer} accounthash={account_as_clkey} publickey={this.props.publickey} parent={this}/>
           <Toaster />
-          <h1>{this.state.message}</h1>
         </div>
       );
     }

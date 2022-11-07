@@ -1,4 +1,4 @@
-// Deploy and Query Controller
+// Send Deploys through axios server to make Deploys and Query state
 import axios from 'axios';
 import { RuntimeArgs, CLValueBuilder, Contracts, CasperClient, DeployUtil, CLPublicKey, Signer, CLAccountHash } from 'casper-js-sdk';
 import { cep78_contract_hash, node_addr } from './constants.js';
@@ -44,7 +44,7 @@ async function getMetadata(list){
 }
 
 
-// Pass account_hash as CLAccountHash => will be converted to a CLKey.
+// COMPLETE
 async function Mint(name, description, url, account_hash, activeKey, parent){
     console.log("Minting...");
     console.log("CLAccountHash: ", account_hash);
@@ -62,6 +62,7 @@ async function Mint(name, description, url, account_hash, activeKey, parent){
             // Following the Sandbox deploy schema:
             //'{\"nft_name\":\"somename01\",\"nft_description\":\"somedescription01\",\"nft_url\":\"someurl01\"}'
     });
+
     const pubkey = CLPublicKey.fromHex(activeKey);
     const client = await new CasperClient(node_addr);
     const contract = new Contracts.Contract(client);
@@ -69,9 +70,7 @@ async function Mint(name, description, url, account_hash, activeKey, parent){
     const result = contract.callEntrypoint("mint", args, pubkey, "casper-test", "3000000000", [], 10000000);
     const deployJson = DeployUtil.deployToJson(result);
     console.log("DeployJson: ", deployJson);
-    parent.setState({
-      message: 'Sent Mint Request!',
-    });
+
     var _status = false;
     const _req = await Signer.sign(deployJson, activeKey).then((success) => {
       _status = true;
@@ -90,7 +89,7 @@ async function Mint(name, description, url, account_hash, activeKey, parent){
       parent.notify("Error: ", "This error is unhandled, it should never occur!");
     }
 }
-
+// UNDER CONSTRUCTION
 async function Transfer(id, recipient, AccountHash, activeKey, parent){
     console.log("Transferring Token...");
     const accountHex = CLPublicKey.fromHex(recipient).toAccountHash();
