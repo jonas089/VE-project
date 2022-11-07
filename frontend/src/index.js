@@ -6,22 +6,16 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-
 // Components and Pages
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import App from './pages/App';
 import Loading from './pages/Loading';
-
 // Casper
 import {Signer} from 'casper-js-sdk';
 import {window_status} from './casper/plugin/lib.js';
-
 import {fromPublic} from './casper/crypto.js';
 
-function updateStatus(interval){
-
-}
 
 export default function ReactApp(){
   // useState

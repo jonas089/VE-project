@@ -3,7 +3,6 @@ import axios from 'axios';
 import { RuntimeArgs, CLValueBuilder, Contracts, CasperClient, DeployUtil, CLPublicKey, Signer, CLAccountHash } from 'casper-js-sdk';
 import { cep78_contract_hash, node_addr } from './constants.js';
 const port = 3001;
-
 const base_url = "http://127.0.0.1:" + port.toString();
 
 async function getOwnedIds(account_hash){
@@ -46,7 +45,7 @@ async function getMetadata(list){
 
 
 // Pass account_hash as CLAccountHash => will be converted to a CLKey.
-async function Mint(name, description, url, account_hash, activeKey){
+async function Mint(name, description, url, account_hash, activeKey, parent){
     console.log("Minting...");
     console.log("CLAccountHash: ", account_hash);
     const metadata =
@@ -74,8 +73,12 @@ async function Mint(name, description, url, account_hash, activeKey){
     const result = contract.callEntrypoint("mint", args, pubkey, "casper-test", "3000000000", [], 10000000);
     const deployJson = DeployUtil.deployToJson(result);
     console.log("DeployJson: ", deployJson);
+    parent.setState({
+      message: 'Sent Mint Request!',
+    });
     Signer.sign(deployJson, activeKey).then((success) => {
-        sendDeploy(success);
+        parent.notify("Deploy Hash: ", deployJson.deploy.hash);
+        sendDeploy(success, parent);
     }).catch((error) => {
         console.log(error);
     });
@@ -110,7 +113,7 @@ async function Transfer(id, recipient, AccountHash, activeKey){
 }
 
 // Send any signed Deploy to a webserver, no need to touch this function.
-function sendDeploy(signedJson){
+function sendDeploy(signedJson, parent){
     console.log("Signed json: ", signedJson);
     axios.post(base_url + "/send",
     signedJson,
@@ -121,7 +124,7 @@ function sendDeploy(signedJson){
         console.log("Deploy Successful, Hash: ", hash);
     })
     .catch((error) => {
-        console.log(error);
+        console.log("Deploy Error: ", error);
     });
 }
 
