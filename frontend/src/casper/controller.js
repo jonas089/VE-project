@@ -72,15 +72,23 @@ async function Mint(name, description, url, account_hash, activeKey, parent){
     parent.setState({
       message: 'Sent Mint Request!',
     });
+    var _status = false;
     const _req = await Signer.sign(deployJson, activeKey).then((success) => {
-        return success;
+      _status = true;
+      return success;
     }).catch((error) => {
-        console.log(error);
-        return error;
+      console.log(error);
+      _status = false;
+      return error;
     });
-    const res = await sendDeploy(_req, parent);
-    await console.log("Deploy Result message print: ", res);
-    parent.notify("Deploy Hash: ", res);
+    if (_status == true){
+      const res = await sendDeploy(_req, parent);
+      await console.log("Deploy Result message print: ", res);
+      parent.notify("Deploy Hash: ", res.toString());
+    }
+    else{
+      parent.notify("Error: ", "This error is unhandled, it should never occur!");
+    }
 }
 
 async function Transfer(id, recipient, AccountHash, activeKey, parent){
@@ -114,20 +122,27 @@ async function Transfer(id, recipient, AccountHash, activeKey, parent){
 // Send any signed Deploy to a webserver, no need to touch this function.
 async function sendDeploy(signedJson, parent){
     await console.log("Signed json: ", signedJson);
-    const res = await axios.post(base_url + "/send",
-    signedJson,
-    {headers: {'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'}})
-    .then((response) => {
-        const hash = response.data;
-        console.log("Data:", response.data);
-        console.log("Deploy Successful, Hash: ", hash);
-        return hash;
-    })
-    .catch((error) => {
-        console.log("Deploy Error: ", error);
-        return error;
-    });
+    var res = '';
+    try{
+      res = await axios.post(base_url + "/send",
+      signedJson,
+      {headers: {'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'}})
+      .then((response) => {
+          const hash = response.data;
+          console.log("Data:", response.data);
+          console.log("Deploy Successful, Hash: ", hash);
+          return hash;
+      })
+      .catch((error) => {
+          console.log("Deploy Error: ", error);
+          return error;
+      });
+    }
+    catch(error){
+      res = error;
+    }
+
     console.log("Async Res: ", res);
     return res;
 }
