@@ -62,29 +62,28 @@ async function Mint(name, description, url, account_hash, activeKey, parent){
             // Following the Sandbox deploy schema:
             //'{\"nft_name\":\"somename01\",\"nft_description\":\"somedescription01\",\"nft_url\":\"someurl01\"}'
     });
-    console.log("PubKey Hex: ", activeKey);
     const pubkey = CLPublicKey.fromHex(activeKey);
     const client = await new CasperClient(node_addr);
     const contract = new Contracts.Contract(client);
     contract.setContractHash(cep78_contract_hash);
-    console.log("Contract: ", contract);
-    // paying fixed fee of 3 cspr for a mint
-    console.log("Pubkey: ", pubkey);
     const result = contract.callEntrypoint("mint", args, pubkey, "casper-test", "3000000000", [], 10000000);
     const deployJson = DeployUtil.deployToJson(result);
     console.log("DeployJson: ", deployJson);
     parent.setState({
       message: 'Sent Mint Request!',
     });
-    Signer.sign(deployJson, activeKey).then((success) => {
-        parent.notify("Deploy Hash: ", deployJson.deploy.hash);
-        sendDeploy(success, parent);
+    const _req = await Signer.sign(deployJson, activeKey).then((success) => {
+        return success;
     }).catch((error) => {
         console.log(error);
+        return error;
     });
+    const res = await sendDeploy(_req, parent);
+    await console.log("Deploy Result message print: ", res);
+    parent.notify("Deploy Hash: ", res);
 }
 
-async function Transfer(id, recipient, AccountHash, activeKey){
+async function Transfer(id, recipient, AccountHash, activeKey, parent){
     console.log("Transferring Token...");
     const accountHex = CLPublicKey.fromHex(recipient).toAccountHash();
     const clKeyAccHash = new CLAccountHash(accountHex);
@@ -113,19 +112,24 @@ async function Transfer(id, recipient, AccountHash, activeKey){
 }
 
 // Send any signed Deploy to a webserver, no need to touch this function.
-function sendDeploy(signedJson, parent){
-    console.log("Signed json: ", signedJson);
-    axios.post(base_url + "/send",
+async function sendDeploy(signedJson, parent){
+    await console.log("Signed json: ", signedJson);
+    const res = await axios.post(base_url + "/send",
     signedJson,
     {headers: {'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*'}})
     .then((response) => {
         const hash = response.data;
+        console.log("Data:", response.data);
         console.log("Deploy Successful, Hash: ", hash);
+        return hash;
     })
     .catch((error) => {
         console.log("Deploy Error: ", error);
+        return error;
     });
+    console.log("Async Res: ", res);
+    return res;
 }
 
 export {Mint, Transfer, getOwnedIds, getMetadata};

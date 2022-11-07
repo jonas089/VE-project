@@ -70,9 +70,6 @@ app.post('/send', (req, res) => {
   console.log("SignedDeploy: ", signedDeploy);
   signedDeploy.send(node_addr)
   .then((response) => {
-    let deploy_history = readJsonFile('./data/deploys');
-    deploy_history.push(response);
-    writeJsonFile(deploy_history, './data/deploys');
     res.send(response);
     return;
   })
