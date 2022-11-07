@@ -13,7 +13,6 @@ export default function NavBar() {
                             <h2 className="text-2xl font-bold inline-flex items-center">
                                 <img src="https://cryptologos.cc/logos/casper-cspr-logo.png?v=023" className="w-16 mr-4"
                                 alt="logo-img"/>
-
                                 Casper & Virtual Enterprises
                             </h2>
                         </a>

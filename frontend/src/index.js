@@ -19,6 +19,10 @@ import {window_status} from './casper/plugin/lib.js';
 
 import {fromPublic} from './casper/crypto.js';
 
+function updateStatus(interval){
+
+}
+
 export default function ReactApp(){
   // useState
   const [plugin, isPresent] = React.useState(false);
@@ -38,22 +42,23 @@ export default function ReactApp(){
     // Signer.sendConnectionRequest();
     console.log("Signer: disconnected.");
   });
-  // custom implementation of helperPresent
 
+  // Check for signer every 1 second until Signer is found.
   useEffect(() => {
-    console.log("Effect")
-    const timer = setTimeout(() => {
+    const interval = setInterval(() => {
+      console.log('Looking for Signer...');
       window_status().then(s => {
         if (s == true){
           isPresent(true);
-          clearTimeout(timer);
+          console.log('Signer found.');
+          clearInterval(interval);
         }
         else{
-          console.log("Waiting for Signer...");
+          console.log('Signer not present.');
         }
-      });
-    }, 100);
-  }, [plugin])
+      })
+    }, 1000);
+  }, []);
 
   // Render page depending on useState variables
   if (plugin == false){
@@ -61,7 +66,6 @@ export default function ReactApp(){
       <Loading/>
     );
   }
-
   else if (reader == false && publickey == 'Not Connected'){
     Signer.getActivePublicKey().then(p => {
       setPublicKey(p);
@@ -74,17 +78,13 @@ export default function ReactApp(){
         <Loading/>
     );
   }
-
   else {
-
     if (locked == false){
       _status = true;
     }
-
     else{
       _status = false;
     }
-
     return(
       <BrowserRouter>
           <Routes>

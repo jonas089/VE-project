@@ -1,3 +1,4 @@
+// Render a list of NFTs
 import React from 'react';
 export default class NFTviewer extends React.Component{
   constructor(props) {

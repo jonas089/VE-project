@@ -1,3 +1,4 @@
+// this Component is considered complete.
 import React from "react";
 export default class SignerViewer extends React.Component {
   constructor(props) {

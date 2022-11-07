@@ -18,6 +18,8 @@ function transfer(id, recipient, accounthash, publickey){
     }
   )
 }
+
+// Return loading if not connected, otherwise render app input forms.
 export default class App extends React.Component {
   constructor(props){
     super(props);

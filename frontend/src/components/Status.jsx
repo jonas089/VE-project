@@ -1,3 +1,4 @@
+// Signer Status message
 import React from "react";
 export default class Status extends React.Component {
   constructor(props) {
