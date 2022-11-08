@@ -8,9 +8,10 @@ import {
 } from "react-router-dom";
 // Components and Pages
 import Layout from './components/Layout';
-import Home from './pages/Home';
+import Account from './pages/Account';
 import App from './pages/App';
 import Loading from './pages/Loading';
+import Resources from './pages/Resources';
 // Casper
 import {Signer} from 'casper-js-sdk';
 import {window_status} from './casper/plugin/lib.js';
@@ -83,7 +84,8 @@ export default function ReactApp(){
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout publickey={publickey} accounthash={accounthash} status={_status}/>}>
-            <Route index element={<Home publickey={publickey} accounthash={accounthash} status={_status}/>} />
+            <Route path='/account' element={<Account publickey={publickey} accounthash={accounthash} status={_status}/>} />
+            <Route index element={<Resources/>}/>
             <Route path="app" element={<App publickey={publickey} accounthash={accounthash}/>} />
             </Route>
           </Routes>

@@ -83,7 +83,7 @@ async function Mint(name, description, url, account_hash, activeKey, parent){
     if (_status == true){
       const res = await sendDeploy(_req, parent);
       await console.log("Deploy Result message print: ", res);
-      parent.notify("Deploy Hash: ", res.toString());
+      parent.notify("Mint deploy sent! Deploy Hash: ", res.toString());
     }
     else{
       parent.notify("Error: ", "This error is unhandled, it should never occur!");
@@ -111,16 +111,27 @@ async function Transfer(id, recipient, AccountHash, activeKey, parent){
     const result = contract.callEntrypoint("transfer", args, pubkey, "casper-test", "3000000000", [], 10000000);
     const deployJson = DeployUtil.deployToJson(result);
     console.log("DeployJson: ", deployJson);
-    Signer.sign(deployJson, activeKey).then((success) => {
-        sendDeploy(success);
+    var _status = false;
+    const _req = await Signer.sign(deployJson, activeKey).then((success) => {
+      _status = true;
+      return success;
     }).catch((error) => {
-        console.log(error);
+      console.log(error);
+      _status = false;
+      return error;
     });
+    if (_status == true){
+      const res = await sendDeploy(_req, parent);
+      await console.log("Deploy Result message print: ", res);
+      parent.notify("Transfer deploy sent! Deploy Hash: ", res.toString());
+    }
+    else{
+      parent.notify("Error: ", "This error is unhandled, it should never occur!");
+    }
 }
 
 // Send any signed Deploy to a webserver, no need to touch this function.
 async function sendDeploy(signedJson, parent){
-    await console.log("Signed json: ", signedJson);
     var res = '';
     try{
       res = await axios.post(base_url + "/send",
@@ -129,8 +140,8 @@ async function sendDeploy(signedJson, parent){
       'Access-Control-Allow-Origin': '*'}})
       .then((response) => {
           const hash = response.data;
-          console.log("Data:", response.data);
-          console.log("Deploy Successful, Hash: ", hash);
+          console.log("Deploy response:", response.data);
+          console.log("Parsed Hash: ", hash);
           return hash;
       })
       .catch((error) => {
@@ -139,11 +150,9 @@ async function sendDeploy(signedJson, parent){
       });
     }
     catch(error){
+      console.log("Axios Error: ", error);
       res = error;
     }
-
-    console.log("Async Res: ", res);
     return res;
 }
-
 export {Mint, Transfer, getOwnedIds, getMetadata};

@@ -3,7 +3,7 @@ import Loading from './Loading';
 import {CLPublicKey, CLAccountHash, CLValueBuilder} from 'casper-js-sdk';
 import {getOwnedIds, getMetadata} from '../casper/controller.js';
 import NFTviewer from '../components/NFTViewer.jsx';
-export default class Home extends React.Component {
+export default class Account extends React.Component {
     constructor(props) {
       super(props);
       this.state = {

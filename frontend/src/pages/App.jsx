@@ -24,8 +24,8 @@ export default class App extends React.Component {
       }
     );
   }
-  transfer(id, recipient, accounthash, publickey){
-    Transfer(id, recipient, accounthash, publickey).then(
+  transfer(id, recipient, accounthash, publickey, parent){
+    Transfer(id, recipient, accounthash, publickey, parent).then(
       res => {
         console.log("async transfer in progress...");
       }
