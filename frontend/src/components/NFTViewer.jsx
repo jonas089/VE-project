@@ -13,7 +13,7 @@ export default class NFTviewer extends React.Component{
           {this.props.metadata.map((meta, id) => (
           <div className='py-3 px-3'>
             <div class="max-w-sm rounded overflow-hidden bg-white px-2 py-2">
-              <img class="w-full" src="https://nftevening.com/wp-content/uploads/2021/05/90.png" alt="placeholder punk"/>
+              <img class="w-full" src={JSON.parse(meta)["nft_url"].toString()} alt="placeholder punk"/>
               <div class="px-6 py-4">
                 <div class="font-bold text-xl mb-2">{JSON.parse(meta)["nft_name"].toString()}</div>
                 <p class="text-sm text-base">
