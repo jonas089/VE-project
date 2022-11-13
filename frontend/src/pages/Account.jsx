@@ -23,7 +23,8 @@ export default class Account extends React.Component {
       // Fetch ids once.
       else if(this.state.status_ids == false){
         console.log("Account Hash: ", this.props.accounthash);
-        getOwnedIds(this.props.accounthash).then(
+        console.log("Selected Peer: ", this.props.peer);
+        getOwnedIds(this.props.accounthash, this.props.peer).then(
           res => {
             if (res == null){
               console.log('Server Error.');
@@ -43,7 +44,7 @@ export default class Account extends React.Component {
       }
       // Fetch metadata once.
       else if(this.state.status_meta == false && this.state.status_ids == true){
-        getMetadata(this.state.ids).then(
+        getMetadata(this.state.ids, this.props.peer).then(
           meta => {
             this.setState({
               ids : this.state.ids,

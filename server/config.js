@@ -1,3 +1,2 @@
-const port = 3001;
-const relpath = '../frontend/src/casper/';
-module.exports = {port, relpath}
+export const port = 3001;
+export const relpath = '../frontend/src/casper/';

@@ -1,5 +1,5 @@
 import React from 'react';
-function Inputform({mint, transfer, accounthash, publickey, parent}){
+function Inputform({peer, mint, transfer, accounthash, publickey, parent}){
   const [name, setName] = React.useState('');
   const [description, setDescription] = React.useState('');
   const [url, setUrl] = React.useState('');
@@ -48,7 +48,7 @@ function Inputform({mint, transfer, accounthash, publickey, parent}){
             </div>
 
             <div className="grid place-items-center">
-              <button onClick={() => mint(name, description, url, accounthash, publickey, parent)} className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+              <button onClick={() => mint(name, description, url, accounthash, publickey, parent, peer)} className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                 Mint
               </button>
             </div>
@@ -69,7 +69,7 @@ function Inputform({mint, transfer, accounthash, publickey, parent}){
             </div>
 
             <div className="grid place-items-center">
-              <button onClick={() => transfer(id, recipient, accounthash, publickey, parent)} className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+              <button onClick={() => transfer(id, recipient, accounthash, publickey, parent, peer)} className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                 Transfer
               </button>
             </div>

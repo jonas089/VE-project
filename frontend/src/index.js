@@ -16,7 +16,7 @@ import Resources from './pages/Resources';
 import {Signer} from 'casper-js-sdk';
 import {window_status} from './casper/plugin/lib.js';
 import {fromPublic} from './casper/crypto.js';
-
+import {getPeer} from './casper/controller.js';
 
 export default function ReactApp(){
   // useState
@@ -25,6 +25,8 @@ export default function ReactApp(){
   const [publickey, setPublicKey] = React.useState('Not Connected');
   const [accounthash, setAccountHash] = React.useState('Not Connected');
   const [locked, isLocked] = React.useState(true);
+  const [peer, setPeer] = React.useState(undefined);
+  const [lookPeer, setlookPeer] = React.useState(true);
   // status
   let _status = false;
   // Event Listener for connect and disconnect event
@@ -38,6 +40,14 @@ export default function ReactApp(){
     console.log("Signer: disconnected.");
   });
 
+  // on app load seek for active peer.
+  // tbd: handle no active peer.
+  if (lookPeer == true){
+    getPeer().then(p => {
+      setPeer(p);
+    });
+    setlookPeer(false);
+  }
   // Check for signer every 1 second until Signer is found.
   useEffect(() => {
     const interval = setInterval(() => {
@@ -55,8 +65,9 @@ export default function ReactApp(){
     }, 1000);
   }, []);
 
-  // Render page depending on useState variables
-  if (plugin == false){
+  // RENDER
+  if (plugin == false || peer == undefined){
+    // Loading until Signer present and peer found.
     return (
       <Loading/>
     );
@@ -84,9 +95,9 @@ export default function ReactApp(){
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout publickey={publickey} accounthash={accounthash} status={_status}/>}>
-            <Route path='/account' element={<Account publickey={publickey} accounthash={accounthash} status={_status}/>} />
+            <Route path='/account' element={<Account publickey={publickey} accounthash={accounthash} status={_status} peer={peer}/>} />
             <Route index element={<Resources/>}/>
-            <Route path="app" element={<App publickey={publickey} accounthash={accounthash}/>} />
+            <Route path="app" element={<App publickey={publickey} accounthash={accounthash} peer={peer}/>} />
             </Route>
           </Routes>
       </BrowserRouter>

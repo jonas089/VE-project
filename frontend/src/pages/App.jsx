@@ -16,16 +16,16 @@ export default class App extends React.Component {
     super(props);
   }
 
-  mint(name, description, url, accounthash, publickey, parent){
+  mint(name, description, url, accounthash, publickey, parent, peer){
     console.log("ongoing minting process...");
-    Mint(name, description, url, accounthash, publickey, parent).then(
+    Mint(name, description, url, accounthash, publickey, parent, peer).then(
       res => {
         console.log('async minting in progress...');
       }
     );
   }
-  transfer(id, recipient, accounthash, publickey, parent){
-    Transfer(id, recipient, accounthash, publickey, parent).then(
+  transfer(id, recipient, accounthash, publickey, parent, peer){
+    Transfer(id, recipient, accounthash, publickey, parent, peer).then(
       res => {
         console.log("async transfer in progress...");
       }
@@ -71,7 +71,7 @@ export default class App extends React.Component {
       const account_as_clkey = new CLAccountHash(_fromHex);
       return(
         <div>
-          <Inputform mint={this.mint} transfer={this.transfer} accounthash={account_as_clkey} publickey={this.props.publickey} parent={this}/>
+          <Inputform peer={this.props.peer} mint={this.mint} transfer={this.transfer} accounthash={account_as_clkey} publickey={this.props.publickey} parent={this}/>
           <Toaster />
         </div>
       );

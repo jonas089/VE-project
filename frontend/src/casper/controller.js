@@ -5,10 +5,11 @@ import { cep78_contract_hash, node_addr } from './constants.js';
 const port = 3001;
 const base_url = "http://127.0.0.1:" + port.toString();
 
-async function getOwnedIds(account_hash){
-    const client = await new CasperClient(node_addr);
+async function getOwnedIds(account_hash, peer){
+    const client = await new CasperClient(peer);
     const data = {
-      "account_hash": account_hash
+      "account_hash": account_hash,
+      "peer": peer
     }
     const owned = await axios.post(base_url + "/ids",
     data,
@@ -24,10 +25,25 @@ async function getOwnedIds(account_hash){
     return owned;
 }
 
-async function getMetadata(list){
+async function getPeer(){
+  await console.log("Initiating Peer request.");
+  const peer = await axios.get(base_url + "/peer")
+  .then((response) => {
+      const p = response.data;
+      return p
+  })
+  .catch((error) => {
+      return null
+  });
+  await console.log("Peer chosen: ", peer);
+  return peer;
+}
+
+async function getMetadata(list, peer){
     const client = await new CasperClient(node_addr);
     const data = {
-      "list": list
+      "list": list,
+      "peer": peer
     }
     const meta = await axios.post(base_url + "/metadata",
     data,
@@ -45,8 +61,8 @@ async function getMetadata(list){
 
 
 // COMPLETE
-async function Mint(name, description, url, account_hash, activeKey, parent){
-    console.log("Minting...");
+async function Mint(name, description, url, account_hash, activeKey, parent, peer){
+    console.log("Minting at Peer: ", peer);
     console.log("CLAccountHash: ", account_hash);
     const metadata =
         JSON.stringify({
@@ -81,7 +97,7 @@ async function Mint(name, description, url, account_hash, activeKey, parent){
       return error;
     });
     if (_status == true){
-      const res = await sendDeploy(_req, parent);
+      const res = await sendDeploy(_req, parent, peer);
       await console.log("Deploy Result message print: ", res);
       parent.notify("Mint deploy sent! Deploy Hash: ", res.toString());
     }
@@ -90,7 +106,7 @@ async function Mint(name, description, url, account_hash, activeKey, parent){
     }
 }
 // UNDER CONSTRUCTION
-async function Transfer(id, recipient, AccountHash, activeKey, parent){
+async function Transfer(id, recipient, AccountHash, activeKey, parent, peer){
     console.log("Transferring Token...");
     const accountHex = CLPublicKey.fromHex(recipient).toAccountHash();
     const clKeyAccHash = new CLAccountHash(accountHex);
@@ -121,7 +137,7 @@ async function Transfer(id, recipient, AccountHash, activeKey, parent){
       return error;
     });
     if (_status == true){
-      const res = await sendDeploy(_req, parent);
+      const res = await sendDeploy(_req, parent, peer);
       await console.log("Deploy Result message print: ", res);
       parent.notify("Transfer deploy sent! Deploy Hash: ", res.toString());
     }
@@ -131,11 +147,15 @@ async function Transfer(id, recipient, AccountHash, activeKey, parent){
 }
 
 // Send any signed Deploy to a webserver, no need to touch this function.
-async function sendDeploy(signedJson, parent){
+async function sendDeploy(signedJson, parent, peer){
     var res = '';
     try{
+      const data = {
+        "signedJson": signedJson,
+        "peer": peer
+      }
       res = await axios.post(base_url + "/send",
-      signedJson,
+      data,
       {headers: {'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*'}})
       .then((response) => {
@@ -155,4 +175,4 @@ async function sendDeploy(signedJson, parent){
     }
     return res;
 }
-export {Mint, Transfer, getOwnedIds, getMetadata};
+export {Mint, Transfer, getOwnedIds, getMetadata, getPeer};
