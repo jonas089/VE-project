@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import {peers} from "./peerlist.js";
 async function fetchNodeWithTimeout(peer, options = {}) {
   const { timeout = 1000 } = options;
   const controller = new AbortController();
@@ -13,14 +14,6 @@ async function fetchNodeWithTimeout(peer, options = {}) {
   clearTimeout(id);
   return res;
 }
-let peers = [
-  '171.225.248.134',
-  '52.70.214.247',
-  '65.21.235.219',
-  '195.201.167.179',
-  '152.57.178.215',
-  '18.236.241.197'
-]
 
 export default async function find_peer(){
   for (let peer in peers){
@@ -33,6 +26,7 @@ export default async function find_peer(){
       await console.log("[Error]: ", peers[peer], " timed out");
     }
   }
+  return undefined;
 }
 
 async function test(){

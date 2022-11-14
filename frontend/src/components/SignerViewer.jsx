@@ -5,19 +5,46 @@ export default class SignerViewer extends React.Component {
     super(props);
   }
   render() {
-    return(
-      <div className='flex text-center justify-center bg-gradient-to-l from-indigo-400 to-red-700'>
-        <div className="flex flex-wrap items-center mt-1">
-            <div className="ml-12">
-                <p className="text-xs text-white">Public Key (use for NFT transfers)</p>
-                <p className="text-xs mt-3 text-white pb-6">{this.props.publickey}</p>
-            </div>
-            <div className="ml-12">
-                <p className="text-xs text-white">Account Hash</p>
-                <p className="text-xs mt-3 text-white pb-6">{this.props.accounthash}</p>
-            </div>
+    console.log("Test:", this.props.peer);
+    if (this.props.peer == ''){
+      return(
+        <div className='flex justify-center bg-gradient-to-l from-indigo-400 to-red-700'>
+          <div className="flex flex-wrap mt-3 justify-center">
+              <div className="ml-12 mr-5">
+                  <p className="text-xl text-white">Public Key (use for NFT transfers)</p>
+                  <p className="text-xs mt-3 text-white pb-6">{this.props.publickey}</p>
+              </div>
+              <div className="ml-5 mr-10">
+                  <p className="text-xs text-white ml-12">Selected RPC Peer</p>
+                  <p className="text-xs mt-3 text-red-900 pb-6 ml-5">Error: All peers offline</p>
+              </div>
+              <div className="mr-12 ml-5">
+                  <p className="text-xl text-white">Account Hash</p>
+                  <p className="text-xs mt-3 text-white pb-6">{this.props.accounthash}</p>
+              </div>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+    else{
+      return(
+        <div className='flex justify-center bg-gradient-to-l from-indigo-400 to-red-700'>
+          <div className="flex flex-wrap mt-3 justify-center">
+              <div className="md:ml-12 md:mr-5 sm:ml-12 sm:mr-5">
+                  <p className="text-xl text-white">Public Key (use for NFT transfers)</p>
+                  <p className="text-xs mt-3 text-white pb-6">{this.props.publickey}</p>
+              </div>
+              <div className="md:ml-5 md:mr-12">
+                  <p className="text-xs text-white">Selected RPC Peer</p>
+                  <p className="text-xl mt-3 text-indigo-300 pb-6">{this.props.peer}</p>
+              </div>
+              <div>
+                  <p className="text-xl text-white">Account Hash</p>
+                  <p className="text-xs mt-3 text-white pb-6">{this.props.accounthash}</p>
+              </div>
+          </div>
+        </div>
+      );
+    }
   }
 }
