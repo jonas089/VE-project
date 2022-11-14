@@ -38,7 +38,7 @@ export default class App extends React.Component {
         <div
           className={classNames([
             t.visible ? "top-0" : "-top-96",
-            'bg-gradient-to-l from-indigo-400 to-red-700',
+            'bg-green-500',
             'text-white',
             'rounded-3xl',
             'px-5',

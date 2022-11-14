@@ -1,4 +1,6 @@
-# 1. Smart Contract Architecture
+# OLD VERSION: https://github.com/jonas089/casper-nft-sandbox-demo
+
+# 1. Smart Contract Architecture - History contract not live yet
 ![VE Smart Contracts](https://user-images.githubusercontent.com/49498646/198291637-2d2b7df1-b508-491e-ada0-870d583ac9f5.png)
 see: https://github.com/casper-ecosystem/cep-78-enhanced-nft
 

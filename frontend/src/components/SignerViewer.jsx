@@ -31,14 +31,14 @@ export default class SignerViewer extends React.Component {
         <div className='flex justify-center bg-gradient-to-l from-indigo-400 to-red-700'>
           <div className="flex flex-wrap mt-3 justify-center">
               <div className="md:ml-12 md:mr-5 sm:ml-12 sm:mr-5">
-                  <p className="text-xl text-white">Public Key (use for NFT transfers)</p>
+                  <p className="text-xl text-white">Address</p>
                   <p className="text-xs mt-3 text-white pb-6">{this.props.publickey}</p>
               </div>
-              <div className="md:ml-5 md:mr-12">
+              <div className="md:ml-5 md:mr-12 ml-5">
                   <p className="text-xs text-white">Selected RPC Peer</p>
                   <p className="text-xl mt-3 text-indigo-300 pb-6">{this.props.peer}</p>
               </div>
-              <div>
+              <div className='ml-5'>
                   <p className="text-xl text-white">Account Hash</p>
                   <p className="text-xs mt-3 text-white pb-6">{this.props.accounthash}</p>
               </div>
