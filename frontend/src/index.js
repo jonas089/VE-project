@@ -69,7 +69,7 @@ export default function ReactApp(){
   if (plugin == false || peer == undefined){
     // Loading until Signer present and peer found.
     return (
-      <Loading/>
+      <Resources/>
     );
   }
   else if (reader == false && publickey == 'Not Connected'){
