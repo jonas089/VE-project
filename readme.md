@@ -1,6 +1,22 @@
 # OLD VERSION: https://github.com/jonas089/casper-nft-sandbox-demo
 
-# 1. Smart Contract Architecture - History contract not live yet
+# Clone repo and run server
+
+```
+  $ git clone https://github.com/jonas089/VE-project
+  $ cd VE-project/server
+  $ node main.js
+  -> server will run on localhost port 3001 (default)
+```
+# Host React app locally
+```
+  $ cd VE-project/frontend
+  $ npm install
+  $ npm start
+  -> app will run on localhost port 3000 (default)
+```
+
+# Smart Contract Architecture - History contract not live yet
 ![VE Smart Contracts](https://user-images.githubusercontent.com/49498646/198291637-2d2b7df1-b508-491e-ada0-870d583ac9f5.png)
 see: https://github.com/casper-ecosystem/cep-78-enhanced-nft
 
@@ -10,7 +26,7 @@ I'd rather store the transaction history on-chain than at the backend. => will a
 Both contracts will be deployed to casper-testnet. Functionality of Cep78 won't change. \
 Deploy-status will be displayed in the History panel for each deploy.
 
-# 2. Design Goals
+# Design Goals
 - Modern, slick UI. Responsive and fun user experience.
 - Easy to use interface.
 - Home Page: Information and resources for learning about Casper
@@ -19,7 +35,7 @@ Deploy-status will be displayed in the History panel for each deploy.
 
 Summary: Improve Casper-Sandbox functionality and design
 
-# 3. Hosting
+# Hosting
 Domain: TBD
 Server IP: TBD
 Domain Host: NameCheap
