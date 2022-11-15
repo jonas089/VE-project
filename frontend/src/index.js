@@ -12,6 +12,7 @@ import Account from './pages/Account';
 import App from './pages/App';
 import Loading from './pages/Loading';
 import Resources from './pages/Resources';
+import Status from './pages/Status';
 // Casper
 import {Signer} from 'casper-js-sdk';
 import {window_status} from './casper/plugin/lib.js';
@@ -69,7 +70,10 @@ export default function ReactApp(){
   if (plugin == false || peer == undefined){
     // Loading until Signer present and peer found.
     return (
-      <Resources/>
+      <div>
+        <Status/>
+        <Resources/>
+      </div>
     );
   }
   else if (reader == false && publickey == 'Not Connected'){
