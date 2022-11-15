@@ -15,8 +15,8 @@ export default class SignerViewer extends React.Component {
                   <p className="text-xs mt-3 text-white pb-6">{this.props.publickey}</p>
               </div>
               <div className="ml-5 mr-10">
-                  <p className="text-xs text-white ml-12">Selected RPC Peer</p>
-                  <p className="text-xs mt-3 text-red-900 pb-6 ml-5">Error: All peers offline</p>
+                  <p className="text-xl text-white ml-12">Selected RPC Peer</p>
+                  <p className="text-xs mt-3 text-red-400 pb-6 ml-5">Error: All peers offline</p>
               </div>
               <div className="mr-12 ml-5">
                   <p className="text-xl text-white">Account Hash</p>
@@ -35,8 +35,8 @@ export default class SignerViewer extends React.Component {
                   <p className="text-xs mt-3 text-white pb-6">{this.props.publickey}</p>
               </div>
               <div className="md:ml-5 md:mr-12 ml-5">
-                  <p className="text-xs text-white">Selected RPC Peer</p>
-                  <p className="text-xl mt-3 text-indigo-300 pb-6">{this.props.peer}</p>
+                  <p className="text-xl text-white">Selected RPC Peer</p>
+                  <p className="text-xs mt-3 text-green-400 pb-6">{this.props.peer}</p>
               </div>
               <div className='ml-5'>
                   <p className="text-xl text-white">Account Hash</p>

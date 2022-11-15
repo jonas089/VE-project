@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 import {Signer} from 'casper-js-sdk';
 
 export default function NavBar() {

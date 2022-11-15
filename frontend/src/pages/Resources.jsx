@@ -32,6 +32,44 @@ function Resources() {
         </div>
         <p className='text-center text-3xl text-white pb-10 overline'>Getting Started with Smart Contracts</p>
 
+        <div className='flex justify-center'>
+          <iframe
+            width="853"
+            height="480"
+            src={`https://www.youtube.com/embed/4C7L5lS284c`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="Signer Setup"
+          />
+        </div>
+        <p className='text-center text-3xl text-white pb-10 overline'>Staking Casper ( earn interest )</p>
+
+        <div className='flex justify-center'>
+          <iframe
+            width="853"
+            height="480"
+            src={`https://www.youtube.com/embed/fzFQBVaUV-k`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="Signer Setup"
+          />
+        </div>
+        <p className='text-center text-3xl text-white pb-10 overline'>Learn to develop Decentralized Applications (Dapps)</p>
+
+        <div className='flex justify-center'>
+          <iframe
+            width="853"
+            height="480"
+            src={`https://www.youtube.com/embed/q5nW4MUT8q4`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="Signer Setup"
+          />
+        </div>
+        <p className='text-center text-3xl text-white pb-10 overline'>Learn to write code on the Casper Blockchain</p>
 
         <p className='text-center text-6xl text-white py-10 overline'> Deep dive into Casper </p>
 
@@ -42,6 +80,10 @@ function Resources() {
         <p className='flex content-center justify-center text-center text-6xl text-white py-10 overline'> <AiFillGithub /> Open Source Code </p>
         <p className='text-white text-center text-3xl'>Casper Node<a className='text-green-400' href='https://github.com/casper-network/casper-node'> here </a></p>
         <p className='text-white text-center text-3xl pt-10'>CEP-78 Enhanced NFT Standard<a className='text-green-400' href='https://github.com/casper-ecosystem/cep-78-enhanced-nft'> here </a></p>
+        <p className='text-white text-center text-3xl pt-10'>This app<a className='text-green-400' href='https://github.com/jonas089/VE-project'> here </a></p>
+
+
+
         <p className='text-center text-6xl text-white py-10 overline'> CREDITS </p>
         <p className='flex content-center justify-center text-center text-3xl text-white py-10'> Jonas Pauli (R&D Engineer @ Casper Association)</p>
         <a className='flex text-white text-6xl content-center justify-center' href='https://www.linkedin.com/in/jonas-pauli-a6ba38233/'><AiFillLinkedin/></a>
