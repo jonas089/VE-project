@@ -12,7 +12,7 @@ import Account from './pages/Account';
 import App from './pages/App';
 import Loading from './pages/Loading';
 import Resources from './pages/Resources';
-import Status from './components/Status';
+import MobileWarning from './components/MobileWarning';
 import {isMobile} from 'react-device-detect';
 // Casper
 import {Signer} from 'casper-js-sdk';
@@ -66,23 +66,27 @@ export default function ReactApp(){
       })
     }, 1000);
   }, []);
-
+  if (isMobile){
+    return (
+      <div>
+        <MobileWarning/>
+        <Resources/>
+      </div>
+    );
+  }
+  else if(window.location.href == 'http://localhost:3000/' && (plugin == false || peer == undefined)){
+    return(
+      <div>
+        <Resources/>
+      </div>
+    );
+  }
   // RENDER
-  if (plugin == false || peer == undefined){
+  else if (plugin == false || peer == undefined){
     // Loading until Signer present and peer found.
-    if(isMobile){
-      return (
-        <div>
-          <Status/>
-          <Resources/>
-        </div>
-      );
-    }
-    else{
-      return(
-        <Loading/>
-      );
-    }
+    return(
+      <Loading/>
+    );
   }
   else if (reader == false && publickey == 'Not Connected'){
     Signer.getActivePublicKey().then(p => {
