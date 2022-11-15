@@ -13,6 +13,5 @@ export default class Status extends React.Component {
           </div>
         </div>
       );
-    }
   }
 }
