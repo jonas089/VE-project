@@ -12,7 +12,7 @@ import Account from './pages/Account';
 import App from './pages/App';
 import Loading from './pages/Loading';
 import Resources from './pages/Resources';
-import Status from './pages/Status';
+import Status from './components/Status';
 // Casper
 import {Signer} from 'casper-js-sdk';
 import {window_status} from './casper/plugin/lib.js';
