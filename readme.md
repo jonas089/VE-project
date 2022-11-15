@@ -1,5 +1,9 @@
 # OLD VERSION: https://github.com/jonas089/casper-nft-sandbox-demo
 
+# Live 
+
+**This app is live on https://ve.cspr.university**
+
 # Clone repo and run server
 
 ```
