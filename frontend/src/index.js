@@ -13,6 +13,7 @@ import App from './pages/App';
 import Loading from './pages/Loading';
 import Resources from './pages/Resources';
 import Status from './components/Status';
+import {isMobile} from 'react-device-detect';
 // Casper
 import {Signer} from 'casper-js-sdk';
 import {window_status} from './casper/plugin/lib.js';
@@ -69,12 +70,19 @@ export default function ReactApp(){
   // RENDER
   if (plugin == false || peer == undefined){
     // Loading until Signer present and peer found.
-    return (
-      <div>
-        <Status/>
-        <Resources/>
-      </div>
-    );
+    if(isMobile){
+      return (
+        <div>
+          <Status/>
+          <Resources/>
+        </div>
+      );
+    }
+    else{
+      return(
+        <Loading/>
+      );
+    }
   }
   else if (reader == false && publickey == 'Not Connected'){
     Signer.getActivePublicKey().then(p => {
