@@ -4,7 +4,7 @@ function Resources() {
     return(
       <div className='bg-gradient-to-l from-indigo-400 to-red-700'>
 
-        <div className='flex flex-wrap break-all items-stretch items-center bg-cover py-3 px-20 justify-center'>
+        <div className='flex flex-wrap items-stretch items-center bg-cover py-3 px-20 justify-center'>
 
         <div className='flex justify-center pt-5'>
           <div className='max-w-xl p-6 bg-black border border-green-200 rounded-lg shadow-md'>
