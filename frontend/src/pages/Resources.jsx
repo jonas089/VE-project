@@ -7,9 +7,7 @@ function Resources() {
         <p className='text-center sm:text-5xl md:text-6xl text-white py-10 overline'> Video Resources </p>
 
         <div className='flex justify-center'>
-          <iframe
-            width="853"
-            height="480"
+          <iframe className='w-full h-[480px]'
             src={`https://www.youtube.com/embed/qFT8Sho3RSQ`}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -20,9 +18,7 @@ function Resources() {
         <p className='text-center sm:text-2xl md:text-3xl text-white pb-10 overline'>Casper Signer - Setup and Account Creation</p>
 
         <div className='flex justify-center'>
-          <iframe
-            width="853"
-            height="480"
+          <iframe className='w-full h-[480px]'
             src={`https://www.youtube.com/embed/PoiJEZkpocI`}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -33,9 +29,7 @@ function Resources() {
         <p className='text-center sm:text-2xl md:text-3xl text-white pb-10 overline'>Getting Started with Smart Contracts</p>
 
         <div className='flex justify-center'>
-          <iframe
-            width="853"
-            height="480"
+          <iframe className='w-full h-[480px]'
             src={`https://www.youtube.com/embed/4C7L5lS284c`}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -46,9 +40,7 @@ function Resources() {
         <p className='text-center sm:text-2xl md:text-3xl text-white pb-10 overline'>Staking Casper ( earn interest )</p>
 
         <div className='flex justify-center'>
-          <iframe
-            width="853"
-            height="480"
+          <iframe className='w-full h-[480px]'
             src={`https://www.youtube.com/embed/fzFQBVaUV-k`}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -59,9 +51,7 @@ function Resources() {
         <p className='text-center sm:text-2xl md:text-3xl text-white pb-10 overline'>Learn to develop Decentralized Applications (Dapps)</p>
 
         <div className='flex justify-center'>
-          <iframe
-            width="853"
-            height="480"
+          <iframe className='w-full h-[480px]'
             src={`https://www.youtube.com/embed/q5nW4MUT8q4`}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
