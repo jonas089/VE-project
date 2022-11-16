@@ -1,6 +1,6 @@
 # OLD VERSION: https://github.com/jonas089/casper-nft-sandbox-demo
 
-# Live 
+# Live
 
 **This app is live on https://ve.cspr.university**
 
@@ -38,6 +38,10 @@ Deploy-status will be displayed in the History panel for each deploy.
 - History Page: Deploy History
 
 Summary: Improve Casper-Sandbox functionality and design
+
+# Server config
+- change base_url in server.js
+- change root path in index.js
 
 # Hosting
 Domain: TBD
