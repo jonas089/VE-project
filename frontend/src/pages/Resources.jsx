@@ -6,7 +6,7 @@ function Resources() {
 
         <div className='flex flex-wrap items-stretch items-center bg-cover py-3 px-20 justify-center'>
 
-        <div className='flex justify-center pt-5'>
+        <div className='flex justify-center pt-5 px-5'>
           <div className='max-w-xl p-6 bg-black border border-green-200 rounded-lg shadow-md'>
             <p className='text-center text-3xl text-white pb-10 underline'> Documentation </p>
 
@@ -16,7 +16,7 @@ function Resources() {
           </div>
         </div>
 
-        <div className='flex justify-center pt-5'>
+        <div className='flex justify-center pt-5 px-5'>
           <div className='max-w-xl p-6 bg-black border border-green-200 rounded-lg shadow-md'>
             <p className='flex content-center justify-center text-center text-3xl text-white pb-10 underline'> <AiFillGithub /> Open Source Code </p>
 
@@ -26,7 +26,7 @@ function Resources() {
           </div>
         </div>
 
-        <div className='flex justify-center pt-5'>
+        <div className='flex justify-center pt-5 px-5'>
           <div className='max-w-xl p-6 bg-black border border-green-200 rounded-lg shadow-md'>
             <p className='text-center text-3xl text-white pb-10 underline'> Credits </p>
             <p className='flex content-center justify-center text-center text-xl text-white py-5'> Jonas Pauli (R&D Engineer @ Casper Association)</p>
@@ -36,7 +36,7 @@ function Resources() {
           </div>
         </div>
         </div>
-
+        {/* TBD: Improve video view */}
         <div className='bg-black'>
           <p className='text-center text-3xl text-white py-10 underline'> Video Resources </p>
           <div className='flex justify-center pb-5'>

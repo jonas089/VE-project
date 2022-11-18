@@ -13,6 +13,7 @@ import App from './pages/App';
 import Loading from './pages/Loading';
 import Resources from './pages/Resources';
 import MobileWarning from './components/MobileWarning';
+import IdleWarning from './components/IdleWarning';
 import {isMobile} from 'react-device-detect';
 // Casper
 import {Signer} from 'casper-js-sdk';
@@ -75,8 +76,19 @@ export default function ReactApp(){
     );
   }
   else if(window.location.href == 'http://localhost:3000/' && (plugin == false || peer == undefined)){
+    let warning = '';
+    if (plugin == true){
+      warning = 'Signer connected! Checking for available Peer.';
+    }
+    else if(peer == true){
+      warning = 'Peer found! Awaiting Casper Signer.';
+    }
+    else{
+      warning = 'Awaiting Casper Signer and checking for available Peer.';
+    }
     return(
       <div>
+        <IdleWarning warning={warning}/>
         <Resources/>
       </div>
     );
