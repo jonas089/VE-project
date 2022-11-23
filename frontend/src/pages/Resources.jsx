@@ -4,43 +4,40 @@ function Resources() {
     return(
       <div className='bg-gradient-to-l from-indigo-400 to-red-700'>
 
-          <div className='flex flex-wrap items-stretch items-center bg-cover py-3 px-20 justify-center'>
-
-          <div className='flex justify-center pt-5 px-5'>
-            <div className='max-w-xl p-6 bg-black border border-green-200 rounded-lg shadow-md'>
-              <p className='text-center text-3xl text-white pb-10 underline'> Documentation </p>
-
-              <p className='flex content-center justify-center text-white text-center text-xl'><AiFillCaretRight/> Documentation for <a className='text-green-400 px-5' href='https://docs.casperlabs.io/dapp-dev-guide/'> Developers </a></p>
-              <p className='flex content-center justify-center text-white text-center text-xl pt-5'><AiFillCaretRight/> Documentation for <a className='text-green-400 px-5' href='https://docs.casperlabs.io/economics/'> Economists </a></p>
-              <p className='flex content-center justify-center text-white text-center text-xl pt-5'><AiFillCaretRight/> Documentation for <a className='text-green-400 px-5' href='https://docs.casperlabs.io/operators/'> future Operators </a></p>
+          <div className='flex flex-wrap w-full items-stretch items-center bg-cover justify-center py-3 px-20'>
+            <div class="max-w-sm rounded overflow-hidden shadow-lg px-3 py-3">
+              <div className='max-w-xl p-6 bg-black border border-blue-300 rounded-lg shadow-md h-full w-full'>
+                <p className='text-center text-3xl text-white pb-10 underline'> Documentation </p>
+                <p className='flex content-center justify-center text-white text-center text-xl'><AiFillCaretRight/> Documentation for <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/dapp-dev-guide/'> Developers </a></p>
+                <p className='flex content-center justify-center text-white text-center text-xl pt-5'><AiFillCaretRight/> Documentation for <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/economics/'> Economists </a></p>
+                <p className='flex content-center justify-center text-white text-center text-xl pt-5'><AiFillCaretRight/> Documentation for <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/operators/'> future Operators </a></p>
+              </div>
             </div>
-          </div>
 
-          <div className='flex justify-center pt-5 px-5'>
-            <div className='max-w-xl p-6 bg-black border border-green-200 rounded-lg shadow-md'>
-              <p className='flex content-center justify-center text-center text-3xl text-white pb-10 underline'> <AiFillGithub /> Open Source Code </p>
-
-              <p className='text-white text-center text-xl'>Casper Node<a className='text-green-400' href='https://github.com/casper-network/casper-node'> here </a></p>
-              <p className='text-white text-center text-xl pt-5'>CEP-78 Enhanced NFT Standard<a className='text-green-400' href='https://github.com/casper-ecosystem/cep-78-enhanced-nft'> here </a></p>
-              <p className='text-white text-center text-xl pt-5'>This app<a className='text-green-400' href='https://github.com/jonas089/VE-project'> here </a></p>
+            <div class="max-w-sm rounded overflow-hidden shadow-lg px-3 py-3">
+              <div className='max-w-xl p-6 bg-black border border-blue-300 rounded-lg shadow-md h-full w-full'>
+                <p className='flex content-center justify-center text-center text-3xl text-white pb-10 underline'> <AiFillGithub /> Open Source Code </p>
+                <p className='text-white text-center text-xl'>Casper Node<a className='text-blue-400' href='https://github.com/casper-network/casper-node'> here </a></p>
+                <p className='text-white text-center text-xl pt-5'>CEP-78 Enhanced NFT Standard<a className='text-blue-400' href='https://github.com/casper-ecosystem/cep-78-enhanced-nft'> here </a></p>
+                <p className='text-white text-center text-xl pt-5'>This app<a className='text-blue-400' href='https://github.com/jonas089/VE-project'> here </a></p>
+              </div>
             </div>
-          </div>
 
-          <div className='flex justify-center pt-5 px-5'>
-            <div className='max-w-xl p-6 bg-black border border-green-200 rounded-lg shadow-md'>
-              <p className='text-center text-3xl text-white pb-10 underline'> Credits </p>
-              <p className='flex content-center justify-center text-center text-xl text-white py-5'> Jonas Pauli (R&D Engineer @ Casper Association)</p>
-              <a className='flex text-white text-6xl content-center justify-center' href='https://www.linkedin.com/in/jonas-pauli-a6ba38233/'><AiFillLinkedin/></a>
-              <p className='flex content-center justify-center text-center text-xl text-white py-5'> Dylan Ireland (Developer Relations @ Casper Association)</p>
-              <a className='flex text-white text-6xl content-center justify-center' href='https://www.linkedin.com/in/dylanireland/'><AiFillLinkedin/></a>
+            <div class="max-w-sm rounded overflow-hidden shadow-lg px-3 py-3">
+              <div className='max-w-xl py-6 px-3 bg-black border border-blue-300 rounded-lg shadow-md h-full w-full'>
+                <p className='text-center text-3xl text-white pb-10 underline'> Credits </p>
+                <p className='flex content-center justify-center text-center text-xl text-white py-5'> Jonas Pauli (R&D Engineer @ Casper Association)</p>
+                <a className='flex text-blue-400 text-6xl content-center justify-center' href='https://www.linkedin.com/in/jonas-pauli-a6ba38233/'><AiFillLinkedin/></a>
+                <p className='flex content-center justify-center text-center text-xl text-white py-5'> Dylan Ireland (Developer Relations @ Casper Association)</p>
+                <a className='flex text-blue-400 text-6xl content-center justify-center' href='https://www.linkedin.com/in/dylanireland/'><AiFillLinkedin/></a>
+              </div>
             </div>
-          </div>
           </div>
 
           <div className='flex flex-wrap items-stretch items-center bg-black justify-center py-5'>
 
             <div class="max-w-sm rounded overflow-hidden shadow-lg px-3 py-3">
-            <div className='border border-green-200'>
+            <div className='border border-blue-300'>
             <iframe className='w-full aspect-video'
               src={`https://www.youtube.com/embed/qFT8Sho3RSQ`}
               frameBorder="0"
@@ -61,7 +58,7 @@ function Resources() {
             </div>
 
             <div class="max-w-sm rounded overflow-hidden shadow-lg px-3 py-3">
-            <div className='border border-green-200'>
+            <div className='border border-blue-300'>
             <iframe className='w-full aspect-video'
               src={`https://www.youtube.com/embed/cR3v8AthlkQ`}
               frameBorder="0"
@@ -83,7 +80,7 @@ function Resources() {
             </div>
 
             <div class="max-w-sm rounded overflow-hidden shadow-lg px-3 py-3">
-            <div className='border border-green-200'>
+            <div className='border border-blue-300'>
             <iframe className='w-full aspect-video'
               src={`https://www.youtube.com/embed/PoiJEZkpocI`}
               frameBorder="0"
@@ -105,7 +102,7 @@ function Resources() {
             </div>
 
             <div class="max-w-sm rounded overflow-hidden shadow-lg px-3 py-3">
-            <div className='border border-green-200'>
+            <div className='border border-blue-300'>
             <iframe className='w-full aspect-video'
               src={`https://www.youtube.com/embed/rE_saHopXXU`}
               frameBorder="0"
@@ -127,7 +124,7 @@ function Resources() {
             </div>
 
             <div class="max-w-sm rounded overflow-hidden shadow-lg px-3 py-3">
-            <div className='border border-green-200'>
+            <div className='border border-blue-300'>
             <iframe className='w-full aspect-video'
               src={`https://www.youtube.com/embed/DLI889UqLg4`}
               frameBorder="0"
@@ -149,12 +146,12 @@ function Resources() {
             </div>
 
         </div>
-        <footer class="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
+        <footer class="p-4 bg-white shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
           <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com/" class="hover:underline">Casper Association</a>. All Rights Reserved.
           </span>
           <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
               <li>
-                  <a href="https://casper.network/" class="mr-4 hover:underline md:mr-6 ">About</a>
+                  <a href="https://casper.network/" class="mr-4 hover:underline md:mr-6 text-blue-400">Website</a>
               </li>
           </ul>
       </footer>
