@@ -5,12 +5,13 @@ function Resources() {
       <div className='bg-gradient-to-l from-indigo-400 to-red-700'>
 
           <div className='flex flex-wrap w-full items-stretch items-center bg-cover justify-center py-3 px-20'>
-            <div class="max-w-sm rounded overflow-hidden shadow-lg px-3 py-3">
+            <div class="max-w-xl rounded overflow-hidden shadow-lg px-3 py-3">
               <div className='max-w-xl p-6 bg-black border border-blue-300 rounded-lg shadow-md h-full w-full'>
                 <p className='text-center text-3xl text-white pb-10 underline'> Documentation </p>
-                <p className='flex content-center justify-center text-white text-center text-xl'><AiFillCaretRight/> Documentation for <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/dapp-dev-guide/'> Developers </a></p>
-                <p className='flex content-center justify-center text-white text-center text-xl pt-5'><AiFillCaretRight/> Documentation for <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/economics/'> Economists </a></p>
-                <p className='flex content-center justify-center text-white text-center text-xl pt-5'><AiFillCaretRight/> Documentation for <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/operators/'> future Operators </a></p>
+                <p className='flex content-center justify-center text-white text-center text-xl'> Documentation <AiFillCaretRight className='content-center pt-2'/> <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/dapp-dev-guide/'> Developers </a></p>
+                <p className='flex content-center justify-center text-white text-center text-xl pt-5'> Documentation <AiFillCaretRight className='content-center pt-2'/> <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/economics/'> Economists </a></p>
+                <p className='flex content-center justify-center text-white text-center text-xl pt-5'> Documentation <AiFillCaretRight className='content-center pt-2'/> <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/operators/'> Operators </a></p>
+                <p className='flex content-center justify-center text-white text-center text-xl pt-5'> Documentation <AiFillCaretRight className='content-center pt-2'/> <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/staking/'> Staking </a></p>
               </div>
             </div>
 
@@ -18,6 +19,8 @@ function Resources() {
               <div className='max-w-xl p-6 bg-black border border-blue-300 rounded-lg shadow-md h-full w-full'>
                 <p className='flex content-center justify-center text-center text-3xl text-white pb-10 underline'> <AiFillGithub /> Open Source Code </p>
                 <p className='text-white text-center text-xl'>Casper Node<a className='text-blue-400' href='https://github.com/casper-network/casper-node'> here </a></p>
+                <p className='text-white text-center text-xl pt-5'>Javascript SDK<a className='text-blue-400' href='https://github.com/casper-ecosystem/casper-js-sdk'> here </a></p>
+                <p className='text-white text-center text-xl pt-5'>Python SDK<a className='text-blue-400' href='https://github.com/casper-network/casper-python-sdk'> here </a></p>
                 <p className='text-white text-center text-xl pt-5'>CEP-78 Enhanced NFT Standard<a className='text-blue-400' href='https://github.com/casper-ecosystem/cep-78-enhanced-nft'> here </a></p>
                 <p className='text-white text-center text-xl pt-5'>This app<a className='text-blue-400' href='https://github.com/jonas089/VE-project'> here </a></p>
               </div>
@@ -136,6 +139,28 @@ function Resources() {
                 <div class="font-bold text-xl mb-2 text-white">Hackathon - Workshop 1</div>
                 <p class="text-gray-400 text-base">
                   Setup your own test network on your computer.
+                </p>
+              </div>
+              <div class="px-6 pt-4 pb-2 bg-black">
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Developers</span>
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Build a Dapp</span>
+              </div>
+              </div>
+            </div>
+
+            <div class="max-w-sm rounded overflow-hidden shadow-lg px-3 py-3">
+            <div className='border border-blue-300'>
+            <iframe className='w-full aspect-video'
+              src={`https://www.youtube.com/embed/fzFQBVaUV-k`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Signer Setup"
+            />
+              <div class="px-6 py-4 bg-black">
+                <div class="font-bold text-xl mb-2 text-white">dApp Developer Series</div>
+                <p class="text-gray-400 text-base">
+                  Learn to develop a decentralized Application.
                 </p>
               </div>
               <div class="px-6 pt-4 pb-2 bg-black">
