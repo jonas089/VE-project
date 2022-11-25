@@ -5,8 +5,8 @@ import http from 'http';
 import {port} from './config.js';
 import {cep78_contract_hash} from '../frontend/src/casper/constants.js';
 import find_peer from '../experimental/connect.js';
-import pkg from 'casper-js-sdk';
-const {Contracts, CasperClient, DeployUtil} = pkg;
+import {pkg} from 'casper-js-sdk';
+const {Keys, Contracts, CasperClient, DeployUtil} = pkg;
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
@@ -96,10 +96,24 @@ async function Server(){
     catch(e){
       console.log("Server Error: ", e);
     }
+  });
+
+  app.get('/keypair', async (req, res) => {
+    try{
+      const signKeyPair = Keys.Ed25519.parseKeyFiles(
+        'faucet_public.pem',
+        'faucet_private.pem'
+      );
+      res.send(signKeyPair);
     }
-  )
+    catch(e){
+      // add proper error handling
+      console.log("Server Error: ", e);
+    }
+  });
 
   // webserver route to send deploys to a node.
+  // shouldn't this be async aswell??
   app.post('/send', (req, res) => {
     try{
       const peer = req.body.peer;

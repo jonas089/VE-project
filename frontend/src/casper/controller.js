@@ -106,10 +106,7 @@ async function Mint(name, description, url, account_hash, activeKey, parent, pee
     }
 }
 async function Faucet(activeKey, parent, peer){
-  const signKeyPair = Keys.Ed25519.parseKeyFiles(
-    'faucet_public.pem',
-    'faucet_private.pem'
-  );
+  const signKeyPair = await axios.get(base_url + "/keypair")
   // For native-transfers the payment price is fixed
   const paymentAmount = 10000000000;
 
@@ -125,7 +122,7 @@ async function Faucet(activeKey, parent, peer){
 
   let deployParams = new DeployUtil.DeployParams(
       signKeyPair.publicKey,
-      networkName,
+      "casper-net-1",
       gasPrice,
       ttl
   );
@@ -134,7 +131,7 @@ async function Faucet(activeKey, parent, peer){
   const toPublicKey = CLPublicKey.fromHex(activeKey);
 
   const session = DeployUtil.ExecutableDeployItem.newTransfer(
-      amount,
+      1000000000000,
       toPublicKey,
       null,
       id
