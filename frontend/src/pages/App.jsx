@@ -1,7 +1,7 @@
 import React from 'react';
 import Loading from './Loading';
 import Inputform from '../components/InputForm.jsx';
-import {Mint, Transfer} from '../casper/controller.js';
+import {Mint, Transfer, Faucet} from '../casper/controller.js';
 import {CLPublicKey, CLAccountHash} from 'casper-js-sdk';
 
 import classNames from "classnames";
@@ -15,16 +15,24 @@ export default class App extends React.Component {
   constructor(props){
     super(props);
   }
-
+  faucet(publickey, parent, peer){
+    console.log("ongoing claim process...");
+    Faucet(publickey, parent, peer).then(
+      res => {
+        console.log('async claim in progress...');
+      }
+    );
+  }
   mint(name, description, url, accounthash, publickey, parent, peer){
-    console.log("ongoing minting process...");
+    console.log("ongoing mint process...");
     Mint(name, description, url, accounthash, publickey, parent, peer).then(
       res => {
-        console.log('async minting in progress...');
+        console.log('async mint in progress...');
       }
     );
   }
   transfer(id, recipient, accounthash, publickey, parent, peer){
+    console.log("ongoing transfer process...");
     Transfer(id, recipient, accounthash, publickey, parent, peer).then(
       res => {
         console.log("async transfer in progress...");
@@ -71,7 +79,7 @@ export default class App extends React.Component {
       const account_as_clkey = new CLAccountHash(_fromHex);
       return(
         <div>
-          <Inputform peer={this.props.peer} mint={this.mint} transfer={this.transfer} accounthash={account_as_clkey} publickey={this.props.publickey} parent={this}/>
+          <Inputform peer={this.props.peer} mint={this.mint} transfer={this.transfer} faucet={this.faucet} accounthash={account_as_clkey} publickey={this.props.publickey} parent={this}/>
           <Toaster />
         </div>
       );

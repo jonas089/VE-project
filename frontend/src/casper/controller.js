@@ -1,6 +1,6 @@
 // Send Deploys through axios server to make Deploys and Query state
 import axios from 'axios';
-import { RuntimeArgs, CLValueBuilder, Contracts, CasperClient, DeployUtil, CLPublicKey, Signer, CLAccountHash } from 'casper-js-sdk';
+import { Keys, RuntimeArgs, CLValueBuilder, Contracts, CasperClient, DeployUtil, CLPublicKey, Signer, CLAccountHash } from 'casper-js-sdk';
 import { cep78_contract_hash, node_addr } from './constants.js';
 const port = 3001;
 const base_url = "https://ve.cspr.university/api";
@@ -105,6 +105,50 @@ async function Mint(name, description, url, account_hash, activeKey, parent, pee
       parent.notify("Error: ", "This error is unhandled, it should never occur!");
     }
 }
+async function Faucet(activeKey, parent, peer){
+  const signKeyPair = Keys.Ed25519.parseKeyFiles(
+    'faucet_public.pem',
+    'faucet_private.pem'
+  );
+  // For native-transfers the payment price is fixed
+  const paymentAmount = 10000000000;
+
+  // transfer_id field in the request to tag the transaction and to correlate it to your back-end storage
+  const id = 0;
+
+  // gasPrice for native transfers can be set to 1
+  const gasPrice = 1;
+
+  // Time that the deploy will remain valid for, in milliseconds
+  // The default value is 1800000 ms (30 minutes)
+  const ttl = 1800000;
+
+  let deployParams = new DeployUtil.DeployParams(
+      signKeyPair.publicKey,
+      networkName,
+      gasPrice,
+      ttl
+  );
+
+  // We create a public key from account-address (it is the hex representation of the public-key with an added prefix)
+  const toPublicKey = CLPublicKey.fromHex(activeKey);
+
+  const session = DeployUtil.ExecutableDeployItem.newTransfer(
+      amount,
+      toPublicKey,
+      null,
+      id
+  );
+
+  const payment = DeployUtil.standardPayment(paymentAmount);
+  const deploy = DeployUtil.makeDeploy(deployParams, session, payment);
+  const signedDeploy = DeployUtil.signDeploy(deploy, signKeyPair);
+
+  const res = await sendDeploy(signedDeploy, parent, peer);
+  await console.log("Deploy Result message print: ", res);
+  parent.notify("Faucet claim sent! Deploy Hash: ", res.toString());
+}
+
 // UNDER CONSTRUCTION
 async function Transfer(id, recipient, AccountHash, activeKey, parent, peer){
     console.log("Transferring Token...");
@@ -175,4 +219,4 @@ async function sendDeploy(signedJson, parent, peer){
     }
     return res;
 }
-export {Mint, Transfer, getOwnedIds, getMetadata, getPeer};
+export {Mint, Transfer, Faucet, getOwnedIds, getMetadata, getPeer};

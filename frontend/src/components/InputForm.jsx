@@ -1,5 +1,5 @@
 import React from 'react';
-function Inputform({peer, mint, transfer, accounthash, publickey, parent}){
+function Inputform({peer, mint, transfer, faucet, accounthash, publickey, parent}){
   const [name, setName] = React.useState('');
   const [description, setDescription] = React.useState('');
   const [url, setUrl] = React.useState('');
@@ -25,6 +25,11 @@ function Inputform({peer, mint, transfer, accounthash, publickey, parent}){
   // transfer arguments from child: id, recipient
   return(
     <div className='bg-gradient-to-l from-indigo-400 to-red-700'>
+
+    <button onClick={() => faucet(publickey, parent, peer)} className="bg-green-500 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+      Claim
+    </button>
+
       <div className='grid py-[5%] place-items-center divide-x'>
         <div className="w-full max-w-xs">
           <form className="bg-white shadow-md rounded px-5 pt-6 pb-8 mb-4">
