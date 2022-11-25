@@ -15,7 +15,7 @@ export default class Account extends React.Component {
     }
     render(){
       // check if props are loaded
-      if (this.props.publickey == 'Not Connected' || this.props.accounthash == 'Not Connected'){
+      if (this.props.publickey == 'Wallet is Locked' || this.props.accounthash == 'Wallet is Locked'){
         return(
           <Loading/>
         )

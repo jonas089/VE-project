@@ -5,13 +5,13 @@ function Resources() {
       <div className='bg-gradient-to-l from-indigo-400 to-red-700'>
 
           <div className='flex flex-wrap w-full items-stretch items-center bg-cover justify-center py-3 px-20'>
-            <div class="max-w-xl rounded overflow-hidden shadow-lg px-3 py-3">
-              <div className='max-w-xl p-6 bg-black border border-blue-300 rounded-lg shadow-md h-full w-full'>
+            <div class="max-w-sm rounded overflow-hidden shadow-lg px-3 py-3">
+              <div className='max-w-sm p-6 bg-black border border-blue-300 rounded-lg shadow-md h-full w-full'>
                 <p className='text-center text-3xl text-white pb-10 underline'> Documentation </p>
-                <p className='flex content-center justify-center text-white text-center text-xl'> Documentation <AiFillCaretRight className='content-center pt-2'/> <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/dapp-dev-guide/'> Developers </a></p>
-                <p className='flex content-center justify-center text-white text-center text-xl pt-5'> Documentation <AiFillCaretRight className='content-center pt-2'/> <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/economics/'> Economists </a></p>
-                <p className='flex content-center justify-center text-white text-center text-xl pt-5'> Documentation <AiFillCaretRight className='content-center pt-2'/> <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/operators/'> Operators </a></p>
-                <p className='flex content-center justify-center text-white text-center text-xl pt-5'> Documentation <AiFillCaretRight className='content-center pt-2'/> <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/staking/'> Staking </a></p>
+                <p className='flex content-center justify-center text-white text-center text-xl'> For <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/dapp-dev-guide/'> Developers </a></p>
+                <p className='flex content-center justify-center text-white text-center text-xl pt-5'> For <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/economics/'> Economists </a></p>
+                <p className='flex content-center justify-center text-white text-center text-xl pt-5'> For <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/operators/'> Operators </a></p>
+                <p className='flex content-center justify-center text-white text-center text-xl pt-5'> For <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/staking/'> Staking </a></p>
               </div>
             </div>
 

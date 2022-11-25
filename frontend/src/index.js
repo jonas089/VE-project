@@ -25,8 +25,8 @@ export default function ReactApp(){
   // useState
   const [plugin, isPresent] = React.useState(false);
   const [reader, hasRead] = React.useState(false);
-  const [publickey, setPublicKey] = React.useState('Not Connected');
-  const [accounthash, setAccountHash] = React.useState('Not Connected');
+  const [publickey, setPublicKey] = React.useState('Wallet is Locked');
+  const [accounthash, setAccountHash] = React.useState('Wallet is Locked');
   const [locked, isLocked] = React.useState(true);
   const [peer, setPeer] = React.useState(undefined);
   const [lookPeer, setlookPeer] = React.useState(true);
@@ -100,7 +100,7 @@ export default function ReactApp(){
       <Loading/>
     );
   }
-  else if (reader == false && publickey == 'Not Connected'){
+  else if (reader == false && publickey == 'Wallet is Locked'){
     Signer.getActivePublicKey().then(p => {
       setPublicKey(p);
       setAccountHash(fromPublic(p));

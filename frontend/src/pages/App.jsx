@@ -61,7 +61,7 @@ export default class App extends React.Component {
     );
   }
   render(){
-    if (this.props.publickey == 'Not Connected'){
+    if (this.props.publickey == 'Wallet is Locked'){
       return(
         <Loading/>
       );
