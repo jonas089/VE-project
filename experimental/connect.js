@@ -4,7 +4,7 @@ async function fetchNodeWithTimeout(peer, options = {}) {
   const { timeout = 1000 } = options;
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), timeout);
-  const url = 'http://' + peer +':7777';
+  const url = 'http://' + peer +':11101';
   const res = await fetch(url, {
     ...options,
     signal: controller.signal

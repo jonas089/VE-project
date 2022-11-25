@@ -75,7 +75,7 @@ export default function ReactApp(){
       </div>
     );
   }
-  else if(window.location.href == 'http://localhost:3000/' && (plugin == false || peer == undefined)){
+  else if(window.location.href == 'https://ve.cspr.university/' && (plugin == false || peer == undefined)){
     let warning = '';
     if (plugin == true){
       warning = 'Signer connected! Checking for available Peer.';

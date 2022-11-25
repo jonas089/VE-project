@@ -24,7 +24,7 @@ async function Server(){
   app.post('/ids', async (req, res) => {
     try{
       const peer = req.body.peer;
-      const node_addr = 'http://' + peer + ':7777/rpc/';
+      const node_addr = 'http://' + peer + ':11101/rpc/';
       console.log("/getOwnedIds request received.");
       const account_hash = req.body.account_hash;
       const client = await new CasperClient(node_addr);
@@ -61,7 +61,7 @@ async function Server(){
   app.post('/metadata', async(req, res) => {
     try{
       const peer = req.body.peer;
-      const node_addr = 'http://' + peer + ':7777/rpc/';
+      const node_addr = 'http://' + peer + ':11101/rpc/';
 
       const client = await new CasperClient(node_addr);
       console.log("client set.");
@@ -103,7 +103,7 @@ async function Server(){
   app.post('/send', (req, res) => {
     try{
       const peer = req.body.peer;
-      const node_addr = 'http://' + peer + ':7777/rpc/';
+      const node_addr = 'http://' + peer + ':11101/rpc/';
       console.log("deploying to: ", node_addr);
       const signedJson = req.body.signedJson;
       console.log(signedJson);

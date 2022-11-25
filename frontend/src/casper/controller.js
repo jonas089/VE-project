@@ -3,7 +3,7 @@ import axios from 'axios';
 import { RuntimeArgs, CLValueBuilder, Contracts, CasperClient, DeployUtil, CLPublicKey, Signer, CLAccountHash } from 'casper-js-sdk';
 import { cep78_contract_hash, node_addr } from './constants.js';
 const port = 3001;
-const base_url = "http://127.0.0.1:" + port.toString();
+const base_url = "https://ve.cspr.university/api";
 
 async function getOwnedIds(account_hash, peer){
     const client = await new CasperClient(peer);
@@ -83,7 +83,7 @@ async function Mint(name, description, url, account_hash, activeKey, parent, pee
     const client = await new CasperClient(node_addr);
     const contract = new Contracts.Contract(client);
     contract.setContractHash(cep78_contract_hash);
-    const result = contract.callEntrypoint("mint", args, pubkey, "casper-test", "3000000000", [], 10000000);
+    const result = contract.callEntrypoint("mint", args, pubkey, "casper-net-1", "3000000000", [], 10000000);
     const deployJson = DeployUtil.deployToJson(result);
     console.log("DeployJson: ", deployJson);
 
@@ -124,7 +124,7 @@ async function Transfer(id, recipient, AccountHash, activeKey, parent, peer){
     console.log("Contract: ", contract);
     // paying fixed fee of 3 cspr for a transfer
     console.log("Pubkey: ", pubkey);
-    const result = contract.callEntrypoint("transfer", args, pubkey, "casper-test", "3000000000", [], 10000000);
+    const result = contract.callEntrypoint("transfer", args, pubkey, "casper-net-1", "3000000000", [], 10000000);
     const deployJson = DeployUtil.deployToJson(result);
     console.log("DeployJson: ", deployJson);
     var _status = false;
