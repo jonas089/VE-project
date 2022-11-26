@@ -19,10 +19,10 @@ server will start on localhost port **3001** (default) \
 ```
 app will start on localhost port **3000** (default) \
 3. install Casper Signer \
-![Download](https://chrome.google.com/webstore/detail/casper-signer/djhndpllfiibmcdbnmaaahkhchcoijce?hl=en) \
+[Download](https://chrome.google.com/webstore/detail/casper-signer/djhndpllfiibmcdbnmaaahkhchcoijce?hl=en) \
 4. create an account with Casper Signer \
 5. visit http://localhost:3000/ and press the "connect" button \
-You should now see the accounthash and publickey of your Signer account in the app. 
+You should now see the accounthash and publickey of your Signer account in the app.
 # Design Goals
 - Modern UI
 - Intuitive Signer integration
