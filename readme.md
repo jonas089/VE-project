@@ -3,15 +3,15 @@
 # Setup
 ## localhost
 open 2 cmd tabs to run the server & the app locally. \
-by default, ports 3001 and 3000 will be occupied respectively. \
-1. clone repo and start server \
+by default, ports 3001 and 3000 will be occupied respectively.
+1. clone repo and start server
 ```
   $ git clone https://github.com/jonas089/VE-project
   $ cd VE-project/server
   $ node main.js
 ```
 server will start on localhost port **3001** (default) \
-2. install requirements and run app \
+2. install requirements and run app
 ```
   $ cd VE-project/frontend
   $ npm install
@@ -41,7 +41,7 @@ Development goals defined in 2 stages, pre-VE (before 12th of December) and post
 # Pre-VE
 High Priority!
 ## Logging
-+ Error log \
++ Error log
 - Console logs
 ## Responsiveness
 Improve Warnings and Signer State detection.
