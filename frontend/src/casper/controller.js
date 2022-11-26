@@ -107,19 +107,11 @@ async function Mint(name, description, url, account_hash, activeKey, parent, pee
 }
 async function Faucet(activeKey, parent, peer){
   const signKeyPair = await axios.get(base_url + "/keypair")
-  // For native-transfers the payment price is fixed
   const paymentAmount = 10000000000;
-
-  // transfer_id field in the request to tag the transaction and to correlate it to your back-end storage
   const id = 0;
 
-  // gasPrice for native transfers can be set to 1
   const gasPrice = 1;
-
-  // Time that the deploy will remain valid for, in milliseconds
-  // The default value is 1800000 ms (30 minutes)
   const ttl = 1800000;
-
   let deployParams = new DeployUtil.DeployParams(
       signKeyPair.publicKey,
       "casper-net-1",
@@ -127,9 +119,7 @@ async function Faucet(activeKey, parent, peer){
       ttl
   );
 
-  // We create a public key from account-address (it is the hex representation of the public-key with an added prefix)
   const toPublicKey = CLPublicKey.fromHex(activeKey);
-
   const session = DeployUtil.ExecutableDeployItem.newTransfer(
       1000000000000,
       toPublicKey,

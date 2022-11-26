@@ -6,6 +6,7 @@ function Inputform({peer, mint, transfer, faucet, accounthash, publickey, parent
   const [id, setId] = React.useState('');
   const [recipient, setRecipient] = React.useState('');
 
+  // input handlers
   const handleName = event => {
     setName(event.target.value);
   };
