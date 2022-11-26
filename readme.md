@@ -10,7 +10,7 @@ by default, ports 3001 and 3000 will be occupied respectively.
   $ cd VE-project/server
   $ node main.js
 ```
-server will start on localhost port **3001** (default) \
+server will start on localhost port **3001** (default)
 2. install requirements and run app
 ```
   $ cd VE-project/frontend
