@@ -5,18 +5,18 @@ function Resources() {
       <div className='bg-gradient-to-l from-indigo-400 to-red-700'>
 
           <div className='flex flex-wrap w-full items-stretch items-center bg-cover justify-center py-3 px-20'>
-            <div class="max-w-sm rounded overflow-hidden shadow-lg px-3 py-3">
+            <div class="text-center content-center max-w-sm rounded overflow-hidden break break-after-auto shadow-lg px-3 py-3">
               <div className='max-w-sm p-6 bg-black border border-blue-300 rounded-lg shadow-md h-full w-full'>
-                <p className='text-center text-3xl text-white pb-10 underline'> Documentation </p>
-                <p className='flex content-center justify-center text-white text-center text-xl'> For <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/dapp-dev-guide/'> Developers </a></p>
-                <p className='flex content-center justify-center text-white text-center text-xl pt-5'> For <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/economics/'> Economists </a></p>
-                <p className='flex content-center justify-center text-white text-center text-xl pt-5'> For <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/operators/'> Operators </a></p>
-                <p className='flex content-center justify-center text-white text-center text-xl pt-5'> For <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/staking/'> Staking </a></p>
+                <p className='flex justify-center content-center text-3xl text-white pb-10 underline'> Documentation </p>
+                <p className='flex content-center justify-center text-white text-xl'> For <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/dapp-dev-guide/'> Developers </a></p>
+                <p className='flex content-center justify-center text-white text-xl pt-5'> For <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/economics/'> Economists </a></p>
+                <p className='flex content-center justify-center text-white text-xl pt-5'> For <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/operators/'> Operators </a></p>
+                <p className='flex content-center justify-center text-white text-xl pt-5'> For <a className='text-blue-400 px-5' href='https://docs.casperlabs.io/staking/'> Staking </a></p>
               </div>
             </div>
 
             <div class="max-w-sm rounded overflow-hidden shadow-lg px-3 py-3">
-              <div className='max-w-xl p-6 bg-black border border-blue-300 rounded-lg shadow-md h-full w-full'>
+              <div className='max-w-sm p-6 bg-black border border-blue-300 rounded-lg shadow-md h-full w-full'>
                 <p className='flex content-center justify-center text-center text-3xl text-white pb-10 underline'> <AiFillGithub /> Open Source Code </p>
                 <p className='text-white text-center text-xl'>Casper Node<a className='text-blue-400' href='https://github.com/casper-network/casper-node'> here </a></p>
                 <p className='text-white text-center text-xl pt-5'>Javascript SDK<a className='text-blue-400' href='https://github.com/casper-ecosystem/casper-js-sdk'> here </a></p>
@@ -27,7 +27,7 @@ function Resources() {
             </div>
 
             <div class="max-w-sm rounded overflow-hidden shadow-lg px-3 py-3">
-              <div className='max-w-xl py-6 px-3 bg-black border border-blue-300 rounded-lg shadow-md h-full w-full'>
+              <div className='max-w-sm py-6 px-3 bg-black border border-blue-300 rounded-lg shadow-md h-full w-full'>
                 <p className='text-center text-3xl text-white pb-10 underline'> Credits </p>
                 <p className='flex content-center justify-center text-center text-xl text-white py-5'> Jonas Pauli (R&D Engineer @ Casper Association)</p>
                 <a className='flex text-blue-400 text-6xl content-center justify-center' href='https://www.linkedin.com/in/jonas-pauli-a6ba38233/'><AiFillLinkedin/></a>
