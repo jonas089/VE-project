@@ -20,6 +20,7 @@ export default async function find_peer(){
     try{
       const res = await fetchNodeWithTimeout(peers[peer]);
       await console.log("[SUCCESS]: ", peers[peer], " is a valid peer.");
+      await console.log("[Peer Response Message]: ", res);
       return peers[peer];
       break;
     }catch(e){
