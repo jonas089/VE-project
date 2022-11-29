@@ -1,9 +1,15 @@
-// axios backend
+/////////////////////////////////////////////////
+// TBD: String formatting!///////////////////////
+/////////////////////////////////////////////////
+
+/////////////////////////////////////////////////
+// TBD: Error Logs///////////////////////////////
+/////////////////////////////////////////////////
+
 import express from 'express';
 import cors from 'cors';
 import http from 'http';
-import {port} from './config.js';
-import {cep78_contract_hash} from '../frontend/src/casper/constants.js';
+import {cep78_contract_hash, server_port, node_rpc_port} from '../frontend/src/casper/constants.js';
 import find_peer from '../experimental/connect.js';
 import pkg from 'casper-js-sdk';
 const {Contracts, CasperClient, DeployUtil} = pkg;
@@ -18,13 +24,13 @@ async function Server(){
   app.use(express.json());
   app.use(express.static(__dirname + 'public/static'));
   var httpServer = http.createServer(app);
-  httpServer.listen(port, () => {console.log("Running HTTP on ", port);});
+  httpServer.listen(server_port, () => {console.log("Running HTTP on ", server_port);});
 
 
   app.post('/ids', async (req, res) => {
     try{
       const peer = req.body.peer;
-      const node_addr = 'http://' + peer + ':7777/rpc/';
+      const node_addr = 'http://' + peer + ':' + node_rpc_port.toString() + '/rpc/';
       console.log("/getOwnedIds request received.");
       const account_hash = req.body.account_hash;
       const client = await new CasperClient(node_addr);
@@ -61,7 +67,7 @@ async function Server(){
   app.post('/metadata', async(req, res) => {
     try{
       const peer = req.body.peer;
-      const node_addr = 'http://' + peer + ':7777/rpc/';
+      const node_addr = 'http://' + peer + ':' + node_rpc_port.toString() +  '/rpc/';
 
       const client = await new CasperClient(node_addr);
       console.log("client set.");
@@ -103,7 +109,7 @@ async function Server(){
   app.post('/send', (req, res) => {
     try{
       const peer = req.body.peer;
-      const node_addr = 'http://' + peer + ':7777/rpc/';
+      const node_addr = 'http://' + peer + ':' + node_rpc_port.toString() + '/rpc/';
       console.log("deploying to: ", node_addr);
       const signedJson = req.body.signedJson;
       console.log(signedJson);
@@ -115,12 +121,15 @@ async function Server(){
         return;
       })
       .catch((error) => {
+        res.send("Mint Error: Check CSPR Token Balance!");
         console.log(error);
         return;
       });;
     }
     catch(e){
       console.log("Server Error: ", e);
+      res.send("Server Error: Contact Developer!")
+      return;
     }
   });
 }

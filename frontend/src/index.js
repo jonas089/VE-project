@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import {home_route} from './casper/constants.js';
 import {
   BrowserRouter,
   Routes,
@@ -75,7 +76,7 @@ export default function ReactApp(){
       </div>
     );
   }
-  else if(window.location.href == 'http://localhost:3000/' && (plugin == false || peer == undefined)){
+  else if(window.location.href == home_route && (plugin == false || peer == undefined)){
     let warning = '';
     if (plugin == true){
       warning = 'Signer connected! Checking for available Peer.';

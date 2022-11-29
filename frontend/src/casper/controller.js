@@ -1,9 +1,16 @@
 // Send Deploys through axios server to make Deploys and Query state
 import axios from 'axios';
 import { RuntimeArgs, CLValueBuilder, Contracts, CasperClient, DeployUtil, CLPublicKey, Signer, CLAccountHash } from 'casper-js-sdk';
-import { cep78_contract_hash, node_addr } from './constants.js';
+import { cep78_contract_hash, node_addr, api_route, is_domain } from './constants.js';
 const port = 3001;
-const base_url = "http://127.0.0.1:" + port.toString();
+
+var base_url = null;
+if (is_domain == true){
+  base_url = api_route;
+}
+else{
+  base_url = api_route + port.toString();
+}
 
 async function getOwnedIds(account_hash, peer){
     const client = await new CasperClient(peer);
