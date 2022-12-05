@@ -2,7 +2,8 @@
   "dependencies": {
     "casper-js-sdk": "^2.10.0",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security"
   },
-  "type":"module"
+  "type": "module"
 }

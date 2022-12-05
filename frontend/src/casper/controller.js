@@ -42,7 +42,7 @@ async function getPeer(){
   .catch((error) => {
       return null
   });
-  await console.log("Peer chosen: ", peer);
+  await console.log("Peer selection Info: ", peer);
   return peer;
 }
 
