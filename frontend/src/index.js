@@ -71,10 +71,14 @@ export default function ReactApp(){
   }, []);
   if (isMobile){
     return (
-      <div>
-        <MobileWarning/>
-        <Resources/>
-      </div>
+      <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout publickey={publickey} accounthash={accounthash} status={_status} peer={peer}/>}>
+            <Route index element={<Resources/>}/>
+            <Route path="guide" element={<Guide />} />
+            </Route>
+          </Routes>
+      </BrowserRouter>
     );
   }
   else if(window.location.href == home_route && (plugin == false || peer == undefined)){
@@ -125,10 +129,10 @@ export default function ReactApp(){
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout publickey={publickey} accounthash={accounthash} status={_status} peer={peer}/>}>
+            <Route path="guide" element={<Guide />} />
             <Route path='/account' element={<Account publickey={publickey} accounthash={accounthash} status={_status} peer={peer}/>} />
             <Route index element={<Resources/>}/>
             <Route path="app" element={<App publickey={publickey} accounthash={accounthash} peer={peer}/>} />
-            <Route path="guide" element={<Guide />} />
             </Route>
           </Routes>
       </BrowserRouter>
