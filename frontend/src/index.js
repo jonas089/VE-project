@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import {home_route} from './casper/constants.js';
-import MobileNav from './components/MobileNav';
+import MobileLayout from './components/MobileNav';
 import {
   BrowserRouter,
   Routes,
