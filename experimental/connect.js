@@ -19,16 +19,14 @@ export default async function find_peer(){
   for (let peer in peers){
     try{
       const res = await fetchNodeWithTimeout(peers[peer]);
-      // This will only print to the console when running a test.
-      // Not in react-dom console!
       await console.log("[Response]: ", res);
+      // maybe try to query an account instead, as sometimes
+      // status code seems to flip
       if (res['status'] != 400){
         continue;
       }
       return peers[peer];
     }catch(e){
-      // This will only print to the console when running a test.
-      // Not in react-dom console!
       await console.log("[Error]: ", peers[peer], " timed out");
     }
   }

@@ -70,6 +70,9 @@ export default function NavBar() {
                             <li className="text-gray-600 hover:text-blue-600">
                                 <a href="/account">Account</a>
                             </li>
+                            <li className="text-gray-600 hover:text-blue-600">
+                                <a href="/guide">Guide</a>
+                            </li>
                             <button className='bg-indigo-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' onClick={() => Signer.sendConnectionRequest()}>Connect Signer</button>
                         </ul>
                     </div>

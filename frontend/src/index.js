@@ -11,6 +11,7 @@ import {
 import Layout from './components/Layout';
 import Account from './pages/Account';
 import App from './pages/App';
+import Guide from './pages/Guide';
 import Loading from './pages/Loading';
 import Resources from './pages/Resources';
 import MobileWarning from './components/MobileWarning';
@@ -127,6 +128,7 @@ export default function ReactApp(){
             <Route path='/account' element={<Account publickey={publickey} accounthash={accounthash} status={_status} peer={peer}/>} />
             <Route index element={<Resources/>}/>
             <Route path="app" element={<App publickey={publickey} accounthash={accounthash} peer={peer}/>} />
+            <Route path="guide" element={<Guide />} />
             </Route>
           </Routes>
       </BrowserRouter>
