@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import {home_route} from './casper/constants.js';
-import MobileLayout from './components/MobileNav';
+import MobileLayout from './components/MobileLayout';
 import {
   BrowserRouter,
   Routes,
@@ -74,9 +74,9 @@ export default function ReactApp(){
     return (
       <BrowserRouter>
           <Routes>
-            <Route path="/" element={<MobileNav/>}>
+            <Route path="/" element={<MobileLayout/>}>
             <Route index element={<Resources/>}/>
-            <Route path="guide" element={<Guide />} />
+            <Route path="/guide" element={<Guide />} />
             </Route>
           </Routes>
       </BrowserRouter>
@@ -130,10 +130,10 @@ export default function ReactApp(){
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout publickey={publickey} accounthash={accounthash} status={_status} peer={peer}/>}>
-            <Route path="guide" element={<Guide />} />
+            <Route path="/guide" element={<Guide />} />
             <Route path='/account' element={<Account publickey={publickey} accounthash={accounthash} status={_status} peer={peer}/>} />
             <Route index element={<Resources/>}/>
-            <Route path="app" element={<App publickey={publickey} accounthash={accounthash} peer={peer}/>} />
+            <Route path="/app" element={<App publickey={publickey} accounthash={accounthash} peer={peer}/>} />
             </Route>
           </Routes>
       </BrowserRouter>
