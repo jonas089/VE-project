@@ -65,12 +65,6 @@ export default function MobileNav() {
                             <li className="text-gray-600 hover:text-blue-600">
                                 <a href="/guide">Guide</a>
                             </li>
-                            <li className="text-gray-600 hover:text-blue-600">
-                                <a href="/app">Guide</a>
-                            </li>
-                            <li className="text-gray-600 hover:text-blue-600">
-                                <a href="/account">Guide</a>
-                            </li>
                         </ul>
                     </div>
                 </div>

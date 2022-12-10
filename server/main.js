@@ -15,7 +15,7 @@ import pkg from 'casper-js-sdk';
 const {Contracts, CasperClient, DeployUtil} = pkg;
 import path from 'path';
 import {fileURLToPath} from 'url';
-import {writeLog} from './logging.js';
+import {writeLog, writeAnalytics} from './logging.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -29,6 +29,12 @@ async function Server(){
 
 
   app.post('/ids', async (req, res) => {
+    try{
+      writeAnalytics();
+    }
+    catch(e){
+      writeLog(`[E2]->${e}`);
+    }
     try{
       const peer = req.body.peer;
       const node_addr = `http://${peer}:${node_rpc_port.toString()}/rpc/`;
