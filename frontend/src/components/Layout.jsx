@@ -10,7 +10,7 @@ export default class Layout extends React.Component {
     return(
       <div>
         <SignerViewer publickey={this.props.publickey} accounthash={this.props.accounthash} peer={this.props.peer}/>
-        <NavBar />
+        <NavBar isMobile={this.props.isMobile}/>
         <Outlet />
       </div>
     );
