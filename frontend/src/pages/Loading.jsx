@@ -1,5 +1,5 @@
 import React from 'react';
-function Loading() {
+export default function Loading() {
     return(
       <div>
         <div class="flex h-screen justify-center items-center bg-gradient-to-l from-indigo-400 to-red-700">
@@ -27,5 +27,3 @@ function Loading() {
       </div>
     );
 }
-
-export default Loading;

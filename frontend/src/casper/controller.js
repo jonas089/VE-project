@@ -68,7 +68,7 @@ async function getMetadata(list, peer){
 
 
 // COMPLETE
-async function Mint(name, description, url, account_hash, activeKey, parent, peer){
+async function Mint(name, description, url, account_hash, activeKey, notify, peer){
     console.log("Minting at Peer: ", peer);
     console.log("CLAccountHash: ", account_hash);
     const metadata =
@@ -104,16 +104,16 @@ async function Mint(name, description, url, account_hash, activeKey, parent, pee
       return error;
     });
     if (_status == true){
-      const res = await sendDeploy(_req, parent, peer);
+      const res = await sendDeploy(_req, peer);
       await console.log("Deploy Result message print: ", res);
-      parent.notify("Mint deploy sent! Deploy Hash: ", res.toString());
+      notify("Mint deploy sent! Deploy Hash: ", res.toString());
     }
     else{
-      parent.notify("Error: ", "This error is unhandled, it should never occur!");
+      notify("Error: ", "This error is unhandled, it should never occur!");
     }
 }
 // UNDER CONSTRUCTION
-async function Transfer(id, recipient, AccountHash, activeKey, parent, peer){
+async function Transfer(id, recipient, AccountHash, activeKey, notify, peer){
     console.log("Transferring Token...");
     const accountHex = CLPublicKey.fromHex(recipient).toAccountHash();
     const clKeyAccHash = new CLAccountHash(accountHex);
@@ -144,17 +144,17 @@ async function Transfer(id, recipient, AccountHash, activeKey, parent, peer){
       return error;
     });
     if (_status == true){
-      const res = await sendDeploy(_req, parent, peer);
+      const res = await sendDeploy(_req, peer);
       await console.log("Deploy Result message print: ", res);
-      parent.notify("Transfer deploy sent! Deploy Hash: ", res.toString());
+      notify("Transfer deploy sent! Deploy Hash: ", res.toString());
     }
     else{
-      parent.notify("Error: ", "This error is unhandled, it should never occur!");
+      notify("Error: ", "This error is unhandled, it should never occur!");
     }
 }
 
 // Send any signed Deploy to a webserver, no need to touch this function.
-async function sendDeploy(signedJson, parent, peer){
+async function sendDeploy(signedJson, peer){
     var res = '';
     try{
       const data = {

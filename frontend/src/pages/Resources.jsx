@@ -1,6 +1,6 @@
 import React from 'react';
 import {AiFillGithub, AiOutlineSketch, AiFillCaretRight, AiFillLinkedin} from 'react-icons/ai';
-function Resources() {
+export default function Resources() {
     return(
       <div className='bg-gradient-to-l from-indigo-400 to-red-700'>
 
@@ -183,5 +183,3 @@ function Resources() {
       </div>
     );
 }
-
-export default Resources;
